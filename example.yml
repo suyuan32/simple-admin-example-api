@@ -279,15 +279,15 @@ paths:
             summary: Initialize database | 初始化数据库
             tags:
                 - base
-    /student:
-        delete:
+    /student/batch_delete:
+        post:
             description: Delete Student information | 删除Student信息
-            operationId: DeleteStudent
+            operationId: BatchDeleteStudent
             parameters:
                 - in: body
                   name: body
                   schema:
-                    $ref: '#/definitions/IDReq'
+                    $ref: '#/definitions/IDsReq'
                     type: object
             responses:
                 "200":
@@ -297,6 +297,7 @@ paths:
             summary: Delete Student information | 删除Student信息
             tags:
                 - student
+    /student/create_or_update:
         post:
             description: Create or update Student information | 创建或更新Student
             operationId: CreateOrUpdateStudent
@@ -312,6 +313,24 @@ paths:
                     schema:
                         $ref: '#/definitions/BaseMsgResp'
             summary: Create or update Student information | 创建或更新Student
+            tags:
+                - student
+    /student/delete:
+        post:
+            description: Delete Student information | 删除Student信息
+            operationId: DeleteStudent
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/IDReq'
+                    type: object
+            responses:
+                "200":
+                    description: BaseMsgResp
+                    schema:
+                        $ref: '#/definitions/BaseMsgResp'
+            summary: Delete Student information | 删除Student信息
             tags:
                 - student
     /student/list:

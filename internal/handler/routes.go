@@ -28,18 +28,23 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			[]rest.Route{
 				{
 					Method:  http.MethodPost,
-					Path:    "/student",
+					Path:    "/student/create_or_update",
 					Handler: student.CreateOrUpdateStudentHandler(serverCtx),
 				},
 				{
-					Method:  http.MethodDelete,
-					Path:    "/student",
+					Method:  http.MethodPost,
+					Path:    "/student/delete",
 					Handler: student.DeleteStudentHandler(serverCtx),
 				},
 				{
 					Method:  http.MethodPost,
 					Path:    "/student/list",
 					Handler: student.GetStudentListHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/batch_delete",
+					Handler: student.BatchDeleteStudentHandler(serverCtx),
 				},
 			}...,
 		),

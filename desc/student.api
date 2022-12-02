@@ -59,13 +59,17 @@ type (
 service example {
     // Create or update Student information | 创建或更新Student
     @handler createOrUpdateStudent
-    post /student (CreateOrUpdateStudentReq) returns (BaseMsgResp)
+    post /student/create_or_update (CreateOrUpdateStudentReq) returns (BaseMsgResp)
 
     // Delete Student information | 删除Student信息
     @handler deleteStudent
-    delete /student (IDReq) returns (BaseMsgResp)
+    post /student/delete (IDReq) returns (BaseMsgResp)
 
     // Get Student list | 获取Student列表
     @handler getStudentList
     post /student/list (StudentListReq) returns (StudentListResp)
+
+    // Delete Student information | 删除Student信息
+    @handler batchDeleteStudent
+    post /student/batch_delete (IDsReq) returns (BaseMsgResp)
 }

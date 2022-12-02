@@ -9,31 +9,31 @@ import (
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
-// swagger:route post /student/create_or_update student CreateOrUpdateStudent
+// swagger:route post /student/batch_delete student BatchDeleteStudent
 //
-// Create or update Student information | 创建或更新Student
+// Delete Student information | 删除Student信息
 //
-// Create or update Student information | 创建或更新Student
+// Delete Student information | 删除Student信息
 //
 // Parameters:
 //  + name: body
 //    require: true
 //    in: body
-//    type: CreateOrUpdateStudentReq
+//    type: IDsReq
 //
 // Responses:
 //  200: BaseMsgResp
 
-func CreateOrUpdateStudentHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func BatchDeleteStudentHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.CreateOrUpdateStudentReq
+		var req types.IDsReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.Error(w, err)
 			return
 		}
 
-		l := student.NewCreateOrUpdateStudentLogic(r, svcCtx)
-		resp, err := l.CreateOrUpdateStudent(&req)
+		l := student.NewBatchDeleteStudentLogic(r, svcCtx)
+		resp, err := l.BatchDeleteStudent(&req)
 		if err != nil {
 			err = svcCtx.Trans.TransError(r.Header.Get("Accept-Language"), err)
 			httpx.Error(w, err)
