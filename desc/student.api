@@ -1,0 +1,71 @@
+import "base.api"
+
+type (
+    // The response data of Student information | Student信息
+    StudentInfo {
+        BaseInfo
+
+		// Name
+		Name  string `json:"name"`
+
+		// Age
+		Age  int64 `json:"age"`
+    }
+
+    // Create or update Student information request | 创建或更新Student信息
+    CreateOrUpdateStudentReq {
+        // ID
+        // Required: true
+        Id            uint64 `json:"id"`
+
+		// Name
+		Name  string `json:"name"`
+
+		// Age
+		Age  int64 `json:"age"`
+    }
+
+    // The response data of Student list | Student列表数据
+    StudentListResp {
+        BaseDataInfo
+
+        // Student list data | API 列表数据
+        Data StudentListInfo `json:"data"`
+    }
+
+    // Student list data | Student 列表数据
+    StudentListInfo {
+        BaseListInfo
+
+        // The API list data | API列表数据
+        Data  []StudentInfo  `json:"data"`
+    }
+
+    // Get Student list request params | Student列表请求参数
+    StudentListReq {
+        PageInfo
+
+		// Name
+		Name  string `json:"name"`
+    }
+)
+
+@server(
+    jwt: Auth
+    group: student
+    middleware: Authority
+)
+
+service example {
+    // Create or update Student information | 创建或更新Student
+    @handler createOrUpdateStudent
+    post /student (CreateOrUpdateStudentReq) returns (BaseMsgResp)
+
+    // Delete Student information | 删除Student信息
+    @handler deleteStudent
+    delete /student (IDReq) returns (BaseMsgResp)
+
+    // Get Student list | 获取Student列表
+    @handler getStudentList
+    post /student/list (StudentListReq) returns (StudentListResp)
+}
