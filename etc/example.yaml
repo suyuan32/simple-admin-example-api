@@ -1,6 +1,6 @@
 Name: example.api
 Host: 0.0.0.0
-Port: 8889
+Port: 8081
 Timeout: 30000
 
 Auth:
@@ -52,4 +52,4 @@ CasbinConf:
 
 ExampleRpc:
   Endpoints:
-    - 127.0.0.1:8888
+    - 127.0.0.1:8080
