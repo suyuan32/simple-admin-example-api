@@ -9,4 +9,4 @@ goctls api new example --i18n=true --casbin=true --goZeroVersion=v1.4.2 --toolVe
 goctls api proto --proto=/home/ryan/GolandProjects/simple-admin-example-rpc/example.proto --style=go_zero --serviceName=example --o=./ --model=Student --rpcName=Example --grpcPackage=github.com/suyuan32/simple-admin-example-rpc/example
 ```
 
-> 还需在 service context 添加 ExampleRpc
+> 还需在 service context, config, etc 添加 ExampleRpc
