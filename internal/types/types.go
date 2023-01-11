@@ -48,7 +48,7 @@ type PageInfo struct {
 	PageSize uint64 `json:"pageSize" validate:"number,max=100000"`
 }
 
-// Basic ID request | 基础id参数请求
+// Basic ID request | 基础ID参数请求
 // swagger:model IDReq
 type IDReq struct {
 	// ID
@@ -111,6 +111,26 @@ type StudentInfo struct {
 	Name string `json:"name"`
 	// Age
 	Age int64 `json:"age"`
+	// AgeInt32
+	AgeInt32 int32 `json:"ageInt32"`
+	// AgeInt64
+	AgeInt64 int64 `json:"ageInt64"`
+	// AgeUint
+	AgeUint uint64 `json:"ageUint"`
+	// AgeUint32
+	AgeUint32 uint32 `json:"ageUint32"`
+	// AgeUint64
+	AgeUint64 uint64 `json:"ageUint64"`
+	// WeightFloat
+	WeightFloat float64 `json:"weightFloat"`
+	// WeightFloat32
+	WeightFloat32 float32 `json:"weightFloat32"`
+	// ClassId
+	ClassId string `json:"classId"`
+	// EnrollAt
+	EnrollAt int64 `json:"enrollAt"`
+	// StatusBool
+	StatusBool bool `json:"statusBool"`
 }
 
 // Create or update Student information request | 创建或更新Student信息
@@ -123,6 +143,26 @@ type CreateOrUpdateStudentReq struct {
 	Name string `json:"name"`
 	// Age
 	Age int64 `json:"age"`
+	// AgeInt32
+	AgeInt32 int32 `json:"ageInt32"`
+	// AgeInt64
+	AgeInt64 int64 `json:"ageInt64"`
+	// AgeUint
+	AgeUint uint64 `json:"ageUint"`
+	// AgeUint32
+	AgeUint32 uint32 `json:"ageUint32"`
+	// AgeUint64
+	AgeUint64 uint64 `json:"ageUint64"`
+	// WeightFloat
+	WeightFloat float64 `json:"weightFloat"`
+	// WeightFloat32
+	WeightFloat32 float32 `json:"weightFloat32"`
+	// ClassId
+	ClassId string `json:"classId"`
+	// EnrollAt
+	EnrollAt int64 `json:"enrollAt"`
+	// StatusBool
+	StatusBool bool `json:"statusBool"`
 }
 
 // The response data of Student list | Student列表数据
@@ -147,4 +187,6 @@ type StudentListReq struct {
 	PageInfo
 	// Name
 	Name string `json:"name"`
+	// ClassId
+	ClassId string `json:"classId"`
 }

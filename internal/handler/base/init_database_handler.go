@@ -3,9 +3,10 @@ package base
 import (
 	"net/http"
 
+	"github.com/zeromicro/go-zero/rest/httpx"
+
 	"github.com/suyuan32/simple-admin-example-api/internal/logic/base"
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
-	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
 // swagger:route get /init/database base InitDatabase
@@ -23,9 +24,9 @@ func InitDatabaseHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		resp, err := l.InitDatabase()
 		if err != nil {
 			err = svcCtx.Trans.TransError(r.Header.Get("Accept-Language"), err)
-			httpx.Error(w, err)
+			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
-			httpx.OkJson(w, resp)
+			httpx.OkJsonCtx(r.Context(), w, resp)
 		}
 	}
 }

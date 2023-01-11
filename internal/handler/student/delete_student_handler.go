@@ -3,10 +3,11 @@ package student
 import (
 	"net/http"
 
+	"github.com/zeromicro/go-zero/rest/httpx"
+
 	"github.com/suyuan32/simple-admin-example-api/internal/logic/student"
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
-	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
 // swagger:route post /student/delete student DeleteStudent
@@ -28,7 +29,7 @@ func DeleteStudentHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req types.IDReq
 		if err := httpx.Parse(r, &req); err != nil {
-			httpx.Error(w, err)
+			httpx.ErrorCtx(r.Context(), w, err)
 			return
 		}
 
@@ -36,9 +37,9 @@ func DeleteStudentHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		resp, err := l.DeleteStudent(&req)
 		if err != nil {
 			err = svcCtx.Trans.TransError(r.Header.Get("Accept-Language"), err)
-			httpx.Error(w, err)
+			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
-			httpx.OkJson(w, resp)
+			httpx.OkJsonCtx(r.Context(), w, resp)
 		}
 	}
 }

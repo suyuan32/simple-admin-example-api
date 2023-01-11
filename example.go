@@ -3,7 +3,7 @@
 //	Description: example service
 //
 //	Schemes: http, https
-//	Host: localhost:9100
+//	Host: localhost:8081
 //	BasePath: /
 //	Version: 0.0.1
 //	SecurityDefinitions:

@@ -10,12 +10,12 @@ docker:
 	@printf $(GREEN)"[SUCCESS] build docker successfully"
 
 publish-docker:
-	echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin http://${REPO}
-	docker push ${REPO}/${DOCKER_USERNAME}/example-api:${VERSION}
+	echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin https://${REPO}
+	docker push ${DOCKER_USERNAME}/example-api:${VERSION}
 	@printf $(GREEN)"[SUCCESS] publish docker successfully"
 
 gen-api:
-	goctls api go --api ./desc/all.api --dir ./ --transErr=true
+	goctls api go --api ./desc/all.api --dir ./ --trans_err=true
 	swagger generate spec --output=./example.yml --scan-models
 	@printf $(GREEN)"[SUCCESS] generate API successfully"
 
@@ -28,7 +28,6 @@ serve-swagger:
 	@printf $(GREEN)"[SUCCESS] serve swagger-ui successfully"
 	swagger serve -F=swagger --port 36666 example.yml
 
-gen-rpc-ent-logic:
-	goctls api ent --proto=$(proto)  --style=go_zero --multiple=false --serviceName=messaging --searchKeyNum=3 --o=./ --model=$(model)
+gen-api-proto-logic:
+	goctls api proto --proto=$(proto)  --style=go_zero --service_name=example --search_key_num=3 --o=./ --model=$(model)
 	@printf $(GREEN)"[SUCCESS] generate ent logic codes successfully"
-

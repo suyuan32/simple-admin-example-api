@@ -1,7 +1,7 @@
 FROM golang:1.19.1-alpine3.16 as builder
 
 WORKDIR /home
-COPY example .
+COPY . .
 
 RUN go env -w GO111MODULE=on \
     && go env -w GOPROXY=https://goproxy.cn,direct \
