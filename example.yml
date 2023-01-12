@@ -68,6 +68,25 @@ definitions:
                 x-go-name: Msg
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    BaseUUIDInfo:
+        description: The base UUID response data | 基础信息
+        properties:
+            createdAt:
+                description: Create date | 创建日期
+                format: int64
+                type: integer
+                x-go-name: CreatedAt
+            id:
+                description: ID
+                type: string
+                x-go-name: Id
+            updatedAt:
+                description: Update date | 更新日期
+                format: int64
+                type: integer
+                x-go-name: UpdatedAt
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     CreateOrUpdateStudentReq:
         description: Create or update Student information request | 创建或更新Student信息
         properties:
@@ -137,8 +156,76 @@ definitions:
             - id
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    CreateOrUpdateTeacherReq:
+        description: Create or update Teacher information request | 创建或更新Teacher信息
+        properties:
+            age:
+                description: Age
+                format: int64
+                type: integer
+                x-go-name: Age
+            ageInt32:
+                description: AgeInt32
+                format: int32
+                type: integer
+                x-go-name: AgeInt32
+            ageInt64:
+                description: AgeInt64
+                format: int64
+                type: integer
+                x-go-name: AgeInt64
+            ageUint:
+                description: AgeUint
+                format: uint64
+                type: integer
+                x-go-name: AgeUint
+            ageUint32:
+                description: AgeUint32
+                format: uint32
+                type: integer
+                x-go-name: AgeUint32
+            ageUint64:
+                description: AgeUint64
+                format: uint64
+                type: integer
+                x-go-name: AgeUint64
+            classId:
+                description: ClassId
+                type: string
+                x-go-name: ClassId
+            enrollAt:
+                description: EnrollAt
+                format: int64
+                type: integer
+                x-go-name: EnrollAt
+            id:
+                description: ID
+                type: string
+                x-go-name: Id
+            name:
+                description: Name
+                type: string
+                x-go-name: Name
+            statusBool:
+                description: StatusBool
+                type: boolean
+                x-go-name: StatusBool
+            weightFloat:
+                description: WeightFloat
+                format: double
+                type: number
+                x-go-name: WeightFloat
+            weightFloat32:
+                description: WeightFloat32
+                format: float
+                type: number
+                x-go-name: WeightFloat32
+        required:
+            - id
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     IDPathReq:
-        description: Basic ID request in path | 基础ID地址参数请求
+        description: Basic ID request | 基础ID地址参数请求
         properties:
             Id:
                 description: ID
@@ -194,12 +281,29 @@ definitions:
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     StatusCodeReq:
-        description: The request params of setting boolean status | 设置状态参数
+        description: The request params of setting status code | 设置状态参数
         properties:
             id:
                 description: ID
                 format: uint64
                 type: integer
+                x-go-name: Id
+            status:
+                description: Status code | 状态码
+                format: uint64
+                type: integer
+                x-go-name: Status
+        required:
+            - id
+            - status
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    StatusCodeUUIDReq:
+        description: The request params of setting status code by UUID | 根据UUID设置状态参数
+        properties:
+            id:
+                description: ID
+                type: string
                 x-go-name: Id
             status:
                 description: Status code | 状态码
@@ -350,15 +454,168 @@ definitions:
                 x-go-name: Msg
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    TeacherInfo:
+        description: The response data of Teacher information | Teacher信息
+        properties:
+            age:
+                description: Age
+                format: int64
+                type: integer
+                x-go-name: Age
+            ageInt32:
+                description: AgeInt32
+                format: int32
+                type: integer
+                x-go-name: AgeInt32
+            ageInt64:
+                description: AgeInt64
+                format: int64
+                type: integer
+                x-go-name: AgeInt64
+            ageUint:
+                description: AgeUint
+                format: uint64
+                type: integer
+                x-go-name: AgeUint
+            ageUint32:
+                description: AgeUint32
+                format: uint32
+                type: integer
+                x-go-name: AgeUint32
+            ageUint64:
+                description: AgeUint64
+                format: uint64
+                type: integer
+                x-go-name: AgeUint64
+            classId:
+                description: ClassId
+                type: string
+                x-go-name: ClassId
+            createdAt:
+                description: Create date | 创建日期
+                format: int64
+                type: integer
+                x-go-name: CreatedAt
+            enrollAt:
+                description: EnrollAt
+                format: int64
+                type: integer
+                x-go-name: EnrollAt
+            id:
+                description: ID
+                type: string
+                x-go-name: Id
+            name:
+                description: Name
+                type: string
+                x-go-name: Name
+            statusBool:
+                description: StatusBool
+                type: boolean
+                x-go-name: StatusBool
+            updatedAt:
+                description: Update date | 更新日期
+                format: int64
+                type: integer
+                x-go-name: UpdatedAt
+            weightFloat:
+                description: WeightFloat
+                format: double
+                type: number
+                x-go-name: WeightFloat
+            weightFloat32:
+                description: WeightFloat32
+                format: float
+                type: number
+                x-go-name: WeightFloat32
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    TeacherListInfo:
+        description: Teacher list data | Teacher 列表数据
+        properties:
+            data:
+                description: The API list data | API列表数据
+                items:
+                    $ref: '#/definitions/TeacherInfo'
+                type: array
+                x-go-name: Data
+            total:
+                description: The total number of data | 数据总数
+                format: uint64
+                type: integer
+                x-go-name: Total
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    TeacherListReq:
+        description: Get Teacher list request params | Teacher列表请求参数
+        properties:
+            classId:
+                description: ClassId
+                type: string
+                x-go-name: ClassId
+            name:
+                description: Name
+                type: string
+                x-go-name: Name
+            page:
+                description: Page number | 第几页
+                format: uint64
+                type: integer
+                x-go-name: Page
+            pageSize:
+                description: Page size | 单页数据行数
+                format: uint64
+                maximum: 100000
+                type: integer
+                x-go-name: PageSize
+        required:
+            - page
+            - pageSize
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    TeacherListResp:
+        description: The response data of Teacher list | Teacher列表数据
+        properties:
+            code:
+                description: Error code | 错误代码
+                format: int64
+                type: integer
+                x-go-name: Code
+            data:
+                $ref: '#/definitions/TeacherListInfo'
+                description: Data | 数据
+                type: string
+                x-go-name: Data
+            msg:
+                description: Message | 提示信息
+                type: string
+                x-go-name: Msg
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     UUIDReq:
         description: Basic UUID request | 基础UUID参数请求
         properties:
-            UUID:
-                description: UUID
+            id:
+                description: ID
                 maxLength: 36
                 type: string
+                x-go-name: Id
         required:
-            - UUID
+            - id
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    UUIDsReq:
+        description: Basic UUID array request | 基础UUID数组参数请求
+        properties:
+            ids:
+                description: Ids
+                items:
+                    type: string
+                maxLength: 36
+                type: array
+                x-go-name: Ids
+        required:
+            - ids
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
 host: localhost:8081
@@ -451,8 +708,87 @@ paths:
             summary: Get Student list | 获取Student列表
             tags:
                 - student
+    /teacher/batch_delete:
+        post:
+            description: Delete Teacher information | 删除Teacher信息
+            operationId: BatchDeleteTeacher
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/UUIDsReq'
+                    type: object
+            responses:
+                "200":
+                    description: BaseMsgResp
+                    schema:
+                        $ref: '#/definitions/BaseMsgResp'
+            summary: Delete Teacher information | 删除Teacher信息
+            tags:
+                - teacher
+    /teacher/create_or_update:
+        post:
+            description: Create or update Teacher information | 创建或更新Teacher
+            operationId: CreateOrUpdateTeacher
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/CreateOrUpdateTeacherReq'
+                    type: object
+            responses:
+                "200":
+                    description: BaseMsgResp
+                    schema:
+                        $ref: '#/definitions/BaseMsgResp'
+            summary: Create or update Teacher information | 创建或更新Teacher
+            tags:
+                - teacher
+    /teacher/delete:
+        post:
+            description: Delete Teacher information | 删除Teacher信息
+            operationId: DeleteTeacher
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/UUIDReq'
+                    type: object
+            responses:
+                "200":
+                    description: BaseMsgResp
+                    schema:
+                        $ref: '#/definitions/BaseMsgResp'
+            summary: Delete Teacher information | 删除Teacher信息
+            tags:
+                - teacher
+    /teacher/list:
+        post:
+            description: Get Teacher list | 获取Teacher列表
+            operationId: GetTeacherList
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/TeacherListReq'
+                    type: object
+            responses:
+                "200":
+                    description: TeacherListResp
+                    schema:
+                        $ref: '#/definitions/TeacherListResp'
+            summary: Get Teacher list | 获取Teacher列表
+            tags:
+                - teacher
 produces:
     - application/json
+responses:
+    SimpleMsg:
+        description: The simplest message | 最简单的信息
+        headers:
+            msg:
+                description: Message | 信息
+                type: string
 schemes:
     - http
     - https

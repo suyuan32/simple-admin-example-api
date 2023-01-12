@@ -1,9 +1,9 @@
 import "base.api"
 
 type (
-    // The response data of Student information | Student信息
-    StudentInfo {
-        BaseInfo
+    // The response data of Teacher information | Teacher信息
+    TeacherInfo {
+        BaseUUIDInfo
 
         // Name
         Name  string `json:"name"`
@@ -42,11 +42,11 @@ type (
         StatusBool  bool `json:"statusBool"`
     }
 
-    // Create or update Student information request | 创建或更新Student信息
-    CreateOrUpdateStudentReq {
+    // Create or update Teacher information request | 创建或更新Teacher信息
+    CreateOrUpdateTeacherReq {
         // ID
         // Required: true
-        Id    uint64    `json:"id"`
+        Id    string    `json:"id"`
 
         // Name
         Name  string `json:"name"`
@@ -85,24 +85,24 @@ type (
         StatusBool  bool `json:"statusBool"`
     }
 
-    // The response data of Student list | Student列表数据
-    StudentListResp {
+    // The response data of Teacher list | Teacher列表数据
+    TeacherListResp {
         BaseDataInfo
 
-        // Student list data | API 列表数据
-        Data StudentListInfo `json:"data"`
+        // Teacher list data | API 列表数据
+        Data TeacherListInfo `json:"data"`
     }
 
-    // Student list data | Student 列表数据
-    StudentListInfo {
+    // Teacher list data | Teacher 列表数据
+    TeacherListInfo {
         BaseListInfo
 
         // The API list data | API列表数据
-        Data  []StudentInfo  `json:"data"`
+        Data  []TeacherInfo  `json:"data"`
     }
 
-    // Get Student list request params | Student列表请求参数
-    StudentListReq {
+    // Get Teacher list request params | Teacher列表请求参数
+    TeacherListReq {
         PageInfo
 
         // Name
@@ -115,24 +115,24 @@ type (
 
 @server(
     jwt: Auth
-    group: student
+    group: teacher
     middleware: Authority
 )
 
 service example {
-    // Create or update Student information | 创建或更新Student
-    @handler createOrUpdateStudent
-    post /student/create_or_update (CreateOrUpdateStudentReq) returns (BaseMsgResp)
+    // Create or update Teacher information | 创建或更新Teacher
+    @handler createOrUpdateTeacher
+    post /teacher/create_or_update (CreateOrUpdateTeacherReq) returns (BaseMsgResp)
 
-    // Delete Student information | 删除Student信息
-    @handler deleteStudent
-    post /student/delete (IDReq) returns (BaseMsgResp)
+    // Delete Teacher information | 删除Teacher信息
+    @handler deleteTeacher
+    post /teacher/delete (UUIDReq) returns (BaseMsgResp)
 
-    // Get Student list | 获取Student列表
-    @handler getStudentList
-    post /student/list (StudentListReq) returns (StudentListResp)
+    // Get Teacher list | 获取Teacher列表
+    @handler getTeacherList
+    post /teacher/list (TeacherListReq) returns (TeacherListResp)
 
-    // Delete Student information | 删除Student信息
-    @handler batchDeleteStudent
-    post /student/batch_delete (IDsReq) returns (BaseMsgResp)
+    // Delete Teacher information | 删除Teacher信息
+    @handler batchDeleteTeacher
+    post /teacher/batch_delete (UUIDsReq) returns (BaseMsgResp)
 }

@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/casbin/casbin/v2 v2.60.0
 	github.com/suyuan32/simple-admin-core v0.2.1
-	github.com/suyuan32/simple-admin-example-rpc v0.0.0-20230111132720-f5887d47de28
+	github.com/suyuan32/simple-admin-example-rpc v0.0.0-20230112092107-efe16d4ef741
 	github.com/zeromicro/go-zero v1.4.3
 )
 

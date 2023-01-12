@@ -731,8 +731,8 @@ github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
 github.com/suyuan32/simple-admin-core v0.2.1 h1:OQewMxt5Kysl2Z0aAZ1w/fDcshGAWdnyJGfQ2vwN5+M=
 github.com/suyuan32/simple-admin-core v0.2.1/go.mod h1:Ou3C2g/GRN/X1nDEieKU6DASxOcRGssxB71eW8JSXNI=
-github.com/suyuan32/simple-admin-example-rpc v0.0.0-20230111132720-f5887d47de28 h1:RlIjWQxxRqjI1fZ/nTHytCtLuLDjqTTJfN50SSLarrQ=
-github.com/suyuan32/simple-admin-example-rpc v0.0.0-20230111132720-f5887d47de28/go.mod h1:wrEUKhRXSh92wKBbDADCvVIRTrNrnMYDp/3W6SjHU50=
+github.com/suyuan32/simple-admin-example-rpc v0.0.0-20230112092107-efe16d4ef741 h1:BlRek7JgK1rXCyRHB7VoJkSFkyhQcSb2yOWdxiKarQY=
+github.com/suyuan32/simple-admin-example-rpc v0.0.0-20230112092107-efe16d4ef741/go.mod h1:wrEUKhRXSh92wKBbDADCvVIRTrNrnMYDp/3W6SjHU50=
 github.com/suyuan32/simple-admin-tools v0.1.4 h1:eHe4QPhFa02qrftrfxeFwGykfWKmrIOfRmUdAaN1JnM=
 github.com/suyuan32/simple-admin-tools v0.1.4/go.mod h1:hKhKgu5egbKQkryJZliOUuyO5tI7h+zG+i1RAr2zymY=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20170815181823-89b8d40f7ca8/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
