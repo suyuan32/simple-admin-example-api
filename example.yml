@@ -618,7 +618,7 @@ definitions:
             - ids
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
-host: localhost:8081
+host: localhost:9201
 info:
     description: 'Description: example service'
     title: example

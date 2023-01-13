@@ -1,16 +1,16 @@
 Name: example.api
 Host: 0.0.0.0
-Port: 8081
+Port: 9201
 Timeout: 30000
 
 Auth:
-  AccessSecret: # the same as core
+  AccessSecret: 'safasfdsfadfasfsafd' # the same as core
   AccessExpire: 259200
 
 Log:
   ServiceName: exampleApiLogger
   Mode: file
-  Path: /home/data/logs/example/api
+  Path: /home/ryan/logs/example/api
   Level: info
   Compress: false
   KeepDays: 7
@@ -18,7 +18,7 @@ Log:
 
 Prometheus:
   Host: 0.0.0.0
-  Port: 4000
+  Port: 4006
   Path: /metrics
 
 
@@ -27,11 +27,11 @@ RedisConf:
   Type: node
 
 DatabaseConf:
-  Type: mysql
+  Type: postgres
   Host: 127.0.0.1
-  Port: 3306
+  Port: 5432
   DBName: simple_admin
-  Username: # set your username
+  Username: postgres # set your username
   Password: # set your password
   MaxOpenConn: 100
   SSLMode: disable
@@ -49,3 +49,8 @@ CasbinConf:
     e = some(where (p.eft == allow))
     [matchers]
     m = r.sub == p.sub && keyMatch2(r.obj,p.obj) && r.act == p.act
+
+ExampleRpc:
+  Endpoints:
+    - 127.0.0.1:9200
+
