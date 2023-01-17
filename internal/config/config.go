@@ -14,4 +14,5 @@ type Config struct {
 	RedisConf    redis.RedisConf
 	CasbinConf   config.CasbinConf
 	ExampleRpc   zrpc.RpcClientConf
+	SchoolRpc    zrpc.RpcClientConf
 }

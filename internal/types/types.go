@@ -135,94 +135,6 @@ type StatusCodeUUIDReq struct {
 	Status uint64 `json:"status" validate:"number"`
 }
 
-// The response data of Student information | Student信息
-// swagger:model StudentInfo
-type StudentInfo struct {
-	BaseInfo
-	// Name
-	Name string `json:"name"`
-	// Age
-	Age int64 `json:"age"`
-	// AgeInt32
-	AgeInt32 int32 `json:"ageInt32"`
-	// AgeInt64
-	AgeInt64 int64 `json:"ageInt64"`
-	// AgeUint
-	AgeUint uint64 `json:"ageUint"`
-	// AgeUint32
-	AgeUint32 uint32 `json:"ageUint32"`
-	// AgeUint64
-	AgeUint64 uint64 `json:"ageUint64"`
-	// WeightFloat
-	WeightFloat float64 `json:"weightFloat"`
-	// WeightFloat32
-	WeightFloat32 float32 `json:"weightFloat32"`
-	// ClassId
-	ClassId string `json:"classId"`
-	// EnrollAt
-	EnrollAt int64 `json:"enrollAt"`
-	// StatusBool
-	StatusBool bool `json:"statusBool"`
-}
-
-// Create or update Student information request | 创建或更新Student信息
-// swagger:model CreateOrUpdateStudentReq
-type CreateOrUpdateStudentReq struct {
-	// ID
-	// Required: true
-	Id uint64 `json:"id"`
-	// Name
-	Name string `json:"name"`
-	// Age
-	Age int64 `json:"age"`
-	// AgeInt32
-	AgeInt32 int32 `json:"ageInt32"`
-	// AgeInt64
-	AgeInt64 int64 `json:"ageInt64"`
-	// AgeUint
-	AgeUint uint64 `json:"ageUint"`
-	// AgeUint32
-	AgeUint32 uint32 `json:"ageUint32"`
-	// AgeUint64
-	AgeUint64 uint64 `json:"ageUint64"`
-	// WeightFloat
-	WeightFloat float64 `json:"weightFloat"`
-	// WeightFloat32
-	WeightFloat32 float32 `json:"weightFloat32"`
-	// ClassId
-	ClassId string `json:"classId"`
-	// EnrollAt
-	EnrollAt int64 `json:"enrollAt"`
-	// StatusBool
-	StatusBool bool `json:"statusBool"`
-}
-
-// The response data of Student list | Student列表数据
-// swagger:model StudentListResp
-type StudentListResp struct {
-	BaseDataInfo
-	// Student list data | API 列表数据
-	Data StudentListInfo `json:"data"`
-}
-
-// Student list data | Student 列表数据
-// swagger:model StudentListInfo
-type StudentListInfo struct {
-	BaseListInfo
-	// The API list data | API列表数据
-	Data []StudentInfo `json:"data"`
-}
-
-// Get Student list request params | Student列表请求参数
-// swagger:model StudentListReq
-type StudentListReq struct {
-	PageInfo
-	// Name
-	Name string `json:"name"`
-	// ClassId
-	ClassId string `json:"classId"`
-}
-
 // The response data of Teacher information | Teacher信息
 // swagger:model TeacherInfo
 type TeacherInfo struct {
@@ -304,6 +216,94 @@ type TeacherListInfo struct {
 // Get Teacher list request params | Teacher列表请求参数
 // swagger:model TeacherListReq
 type TeacherListReq struct {
+	PageInfo
+	// Name
+	Name string `json:"name"`
+	// ClassId
+	ClassId string `json:"classId"`
+}
+
+// The response data of Student information | Student信息
+// swagger:model StudentInfo
+type StudentInfo struct {
+	BaseInfo
+	// Name
+	Name string `json:"name"`
+	// Age
+	Age int64 `json:"age"`
+	// AgeInt32
+	AgeInt32 int32 `json:"ageInt32"`
+	// AgeInt64
+	AgeInt64 int64 `json:"ageInt64"`
+	// AgeUint
+	AgeUint uint64 `json:"ageUint"`
+	// AgeUint32
+	AgeUint32 uint32 `json:"ageUint32"`
+	// AgeUint64
+	AgeUint64 uint64 `json:"ageUint64"`
+	// WeightFloat
+	WeightFloat float64 `json:"weightFloat"`
+	// WeightFloat32
+	WeightFloat32 float32 `json:"weightFloat32"`
+	// ClassId
+	ClassId string `json:"classId"`
+	// EnrollAt
+	EnrollAt int64 `json:"enrollAt"`
+	// StatusBool
+	StatusBool bool `json:"statusBool"`
+}
+
+// Create or update Student information request | 创建或更新Student信息
+// swagger:model CreateOrUpdateStudentReq
+type CreateOrUpdateStudentReq struct {
+	// ID
+	// Required: true
+	Id uint64 `json:"id"`
+	// Name
+	Name string `json:"name"`
+	// Age
+	Age int64 `json:"age"`
+	// AgeInt32
+	AgeInt32 int32 `json:"ageInt32"`
+	// AgeInt64
+	AgeInt64 int64 `json:"ageInt64"`
+	// AgeUint
+	AgeUint uint64 `json:"ageUint"`
+	// AgeUint32
+	AgeUint32 uint32 `json:"ageUint32"`
+	// AgeUint64
+	AgeUint64 uint64 `json:"ageUint64"`
+	// WeightFloat
+	WeightFloat float64 `json:"weightFloat"`
+	// WeightFloat32
+	WeightFloat32 float32 `json:"weightFloat32"`
+	// ClassId
+	ClassId string `json:"classId"`
+	// EnrollAt
+	EnrollAt int64 `json:"enrollAt"`
+	// StatusBool
+	StatusBool bool `json:"statusBool"`
+}
+
+// The response data of Student list | Student列表数据
+// swagger:model StudentListResp
+type StudentListResp struct {
+	BaseDataInfo
+	// Student list data | API 列表数据
+	Data StudentListInfo `json:"data"`
+}
+
+// Student list data | Student 列表数据
+// swagger:model StudentListInfo
+type StudentListInfo struct {
+	BaseListInfo
+	// The API list data | API列表数据
+	Data []StudentInfo `json:"data"`
+}
+
+// Get Student list request params | Student列表请求参数
+// swagger:model StudentListReq
+type StudentListReq struct {
 	PageInfo
 	// Name
 	Name string `json:"name"`

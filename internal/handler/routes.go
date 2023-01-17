@@ -29,35 +29,6 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			[]rest.Route{
 				{
 					Method:  http.MethodPost,
-					Path:    "/student/create_or_update",
-					Handler: student.CreateOrUpdateStudentHandler(serverCtx),
-				},
-				{
-					Method:  http.MethodPost,
-					Path:    "/student/delete",
-					Handler: student.DeleteStudentHandler(serverCtx),
-				},
-				{
-					Method:  http.MethodPost,
-					Path:    "/student/list",
-					Handler: student.GetStudentListHandler(serverCtx),
-				},
-				{
-					Method:  http.MethodPost,
-					Path:    "/student/batch_delete",
-					Handler: student.BatchDeleteStudentHandler(serverCtx),
-				},
-			}...,
-		),
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
-	)
-
-	server.AddRoutes(
-		rest.WithMiddlewares(
-			[]rest.Middleware{serverCtx.Authority},
-			[]rest.Route{
-				{
-					Method:  http.MethodPost,
 					Path:    "/teacher/create_or_update",
 					Handler: teacher.CreateOrUpdateTeacherHandler(serverCtx),
 				},
@@ -75,6 +46,35 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 					Method:  http.MethodPost,
 					Path:    "/teacher/batch_delete",
 					Handler: teacher.BatchDeleteTeacherHandler(serverCtx),
+				},
+			}...,
+		),
+		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
+	)
+
+	server.AddRoutes(
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.Authority},
+			[]rest.Route{
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/create_or_update",
+					Handler: student.CreateOrUpdateStudentHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/delete",
+					Handler: student.DeleteStudentHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/list",
+					Handler: student.GetStudentListHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/batch_delete",
+					Handler: student.BatchDeleteStudentHandler(serverCtx),
 				},
 			}...,
 		),

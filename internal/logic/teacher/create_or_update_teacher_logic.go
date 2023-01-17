@@ -4,10 +4,9 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/suyuan32/simple-admin-example-rpc/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/client/school"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -29,7 +28,7 @@ func NewCreateOrUpdateTeacherLogic(r *http.Request, svcCtx *svc.ServiceContext) 
 }
 
 func (l *CreateOrUpdateTeacherLogic) CreateOrUpdateTeacher(req *types.CreateOrUpdateTeacherReq) (resp *types.BaseMsgResp, err error) {
-	data, err := l.svcCtx.ExampleRpc.CreateOrUpdateTeacher(l.ctx,
+	data, err := l.svcCtx.SchoolRpc.CreateOrUpdateTeacher(l.ctx,
 		&example.TeacherInfo{
 			Id:            req.Id,
 			Name:          req.Name,

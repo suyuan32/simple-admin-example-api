@@ -4,10 +4,9 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/suyuan32/simple-admin-example-rpc/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/client/school"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -29,7 +28,7 @@ func NewBatchDeleteTeacherLogic(r *http.Request, svcCtx *svc.ServiceContext) *Ba
 }
 
 func (l *BatchDeleteTeacherLogic) BatchDeleteTeacher(req *types.UUIDsReq) (resp *types.BaseMsgResp, err error) {
-	result, err := l.svcCtx.ExampleRpc.BatchDeleteTeacher(l.ctx, &example.UUIDsReq{
+	result, err := l.svcCtx.SchoolRpc.BatchDeleteTeacher(l.ctx, &example.UUIDsReq{
 		Ids: req.Ids,
 	})
 	if err != nil {

@@ -1,7 +1,8 @@
 package svc
 
 import (
-	"github.com/suyuan32/simple-admin-example-rpc/exampleclient"
+	exampleClient "github.com/suyuan32/simple-admin-example-rpc/client/example"
+	schoolClient "github.com/suyuan32/simple-admin-example-rpc/client/school"
 	"github.com/zeromicro/go-zero/zrpc"
 
 	"github.com/suyuan32/simple-admin-example-api/internal/config"
@@ -17,7 +18,8 @@ import (
 
 type ServiceContext struct {
 	Config     config.Config
-	ExampleRpc exampleclient.Example
+	ExampleRpc exampleClient.Example
+	SchoolRpc  schoolClient.School
 	Casbin     *casbin.Enforcer
 	Authority  rest.Middleware
 	Trans      *i18n.Translator
@@ -45,6 +47,7 @@ func NewServiceContext(c config.Config) *ServiceContext {
 		Config:     c,
 		Authority:  middleware.NewAuthorityMiddleware(cbn, rds).Handle,
 		Trans:      trans,
-		ExampleRpc: exampleclient.NewExample(zrpc.MustNewClient(c.ExampleRpc)),
+		ExampleRpc: exampleClient.NewExample(zrpc.MustNewClient(c.ExampleRpc)),
+		SchoolRpc:  schoolClient.NewSchool(zrpc.MustNewClient(c.SchoolRpc)),
 	}
 }
