@@ -6,7 +6,7 @@ import (
 
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
-	"github.com/suyuan32/simple-admin-example-rpc/client/school"
+	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
