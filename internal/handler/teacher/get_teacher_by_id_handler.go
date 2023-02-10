@@ -10,31 +10,31 @@ import (
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
 )
 
-// swagger:route post /teacher/delete teacher DeleteTeacher
+// swagger:route post /teacher teacher GetTeacherById
 //
-// Delete teacher information | 删除Teacher信息
+// Get teacher by ID | 通过ID获取Teacher
 //
-// Delete teacher information | 删除Teacher信息
+// Get teacher by ID | 通过ID获取Teacher
 //
 // Parameters:
 //  + name: body
 //    require: true
 //    in: body
-//    type: UUIDsReq
+//    type: UUIDReq
 //
 // Responses:
-//  200: BaseMsgResp
+//  200: TeacherInfoResp
 
-func DeleteTeacherHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func GetTeacherByIdHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.UUIDsReq
+		var req types.UUIDReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return
 		}
 
-		l := teacher.NewDeleteTeacherLogic(r, svcCtx)
-		resp, err := l.DeleteTeacher(&req)
+		l := teacher.NewGetTeacherByIdLogic(r, svcCtx)
+		resp, err := l.GetTeacherById(&req)
 		if err != nil {
 			err = svcCtx.Trans.TransError(r.Header.Get("Accept-Language"), err)
 			httpx.ErrorCtx(r.Context(), w, err)

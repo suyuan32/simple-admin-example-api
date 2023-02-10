@@ -12,9 +12,9 @@ import (
 
 // swagger:route post /student/list student GetStudentList
 //
-// Get Student list | 获取Student列表
+// Get student list | 获取Student列表
 //
-// Get Student list | 获取Student列表
+// Get student list | 获取Student列表
 //
 // Parameters:
 //  + name: body

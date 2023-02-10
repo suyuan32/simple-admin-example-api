@@ -31,7 +31,7 @@ func NewGetStudentListLogic(r *http.Request, svcCtx *svc.ServiceContext) *GetStu
 
 func (l *GetStudentListLogic) GetStudentList(req *types.StudentListReq) (resp *types.StudentListResp, err error) {
 	data, err := l.svcCtx.ExampleRpc.GetStudentList(l.ctx,
-		&example.StudentPageReq{
+		&example.StudentListReq{
 			Page:     req.Page,
 			PageSize: req.PageSize,
 			Name:     req.Name,

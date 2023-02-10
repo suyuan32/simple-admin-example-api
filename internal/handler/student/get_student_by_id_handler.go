@@ -10,31 +10,31 @@ import (
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
 )
 
-// swagger:route post /student/batch_delete student BatchDeleteStudent
+// swagger:route post /student student GetStudentById
 //
-// Delete Student information | 删除Student信息
+// Get student by ID | 通过ID获取Student
 //
-// Delete Student information | 删除Student信息
+// Get student by ID | 通过ID获取Student
 //
 // Parameters:
 //  + name: body
 //    require: true
 //    in: body
-//    type: IDsReq
+//    type: IDReq
 //
 // Responses:
-//  200: BaseMsgResp
+//  200: StudentInfoResp
 
-func BatchDeleteStudentHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func GetStudentByIdHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.IDsReq
+		var req types.IDReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return
 		}
 
-		l := student.NewBatchDeleteStudentLogic(r, svcCtx)
-		resp, err := l.BatchDeleteStudent(&req)
+		l := student.NewGetStudentByIdLogic(r, svcCtx)
+		resp, err := l.GetStudentById(&req)
 		if err != nil {
 			err = svcCtx.Trans.TransError(r.Header.Get("Accept-Language"), err)
 			httpx.ErrorCtx(r.Context(), w, err)

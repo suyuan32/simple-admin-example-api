@@ -12,15 +12,15 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type CreateOrUpdateStudentLogic struct {
+type CreateStudentLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 	lang   string
 }
 
-func NewCreateOrUpdateStudentLogic(r *http.Request, svcCtx *svc.ServiceContext) *CreateOrUpdateStudentLogic {
-	return &CreateOrUpdateStudentLogic{
+func NewCreateStudentLogic(r *http.Request, svcCtx *svc.ServiceContext) *CreateStudentLogic {
+	return &CreateStudentLogic{
 		Logger: logx.WithContext(r.Context()),
 		ctx:    r.Context(),
 		svcCtx: svcCtx,
@@ -28,8 +28,8 @@ func NewCreateOrUpdateStudentLogic(r *http.Request, svcCtx *svc.ServiceContext) 
 	}
 }
 
-func (l *CreateOrUpdateStudentLogic) CreateOrUpdateStudent(req *types.CreateOrUpdateStudentReq) (resp *types.BaseMsgResp, err error) {
-	data, err := l.svcCtx.ExampleRpc.CreateOrUpdateStudent(l.ctx,
+func (l *CreateStudentLogic) CreateStudent(req *types.StudentInfo) (resp *types.BaseMsgResp, err error) {
+	data, err := l.svcCtx.ExampleRpc.CreateStudent(l.ctx,
 		&example.StudentInfo{
 			Id:            req.Id,
 			Name:          req.Name,

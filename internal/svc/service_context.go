@@ -1,8 +1,10 @@
 package svc
 
 import (
-	"github.com/suyuan32/simple-admin-example-rpc/exampleclient"
+	"github.com/zeromicro/go-zero/core/stores/redis"
 	"github.com/zeromicro/go-zero/zrpc"
+
+	"github.com/suyuan32/simple-admin-example-rpc/exampleclient"
 
 	"github.com/suyuan32/simple-admin-example-api/internal/config"
 	i18n2 "github.com/suyuan32/simple-admin-example-api/internal/i18n"
@@ -17,15 +19,15 @@ import (
 
 type ServiceContext struct {
 	Config     config.Config
-	ExampleRpc exampleclient.Example
 	Casbin     *casbin.Enforcer
 	Authority  rest.Middleware
 	Trans      *i18n.Translator
+	ExampleRpc exampleclient.Example
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 
-	rds := c.RedisConf.NewRedis()
+	rds := redis.MustNewRedis(c.RedisConf)
 	if !rds.Ping() {
 		logx.Error("initialize redis failed")
 		return nil

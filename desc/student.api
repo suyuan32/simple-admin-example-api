@@ -1,115 +1,77 @@
 import "base.api"
 
 type (
-    // The response data of Student information | Student信息
+    // The response data of student information | Student信息
     StudentInfo {
         BaseInfo
 
         // Name
-        Name  string `json:"name"`
+        Name  string `json:"name,optional"`
 
         // Age
-        Age  int64 `json:"age"`
+        Age  int64 `json:"age,optional"`
 
         // AgeInt32
-        AgeInt32  int32 `json:"ageInt32"`
+        AgeInt32  int32 `json:"ageInt32,optional"`
 
         // AgeInt64
-        AgeInt64  int64 `json:"ageInt64"`
+        AgeInt64  int64 `json:"ageInt64,optional"`
 
         // AgeUint
-        AgeUint  uint64 `json:"ageUint"`
+        AgeUint  uint64 `json:"ageUint,optional"`
 
         // AgeUint32
-        AgeUint32  uint32 `json:"ageUint32"`
+        AgeUint32  uint32 `json:"ageUint32,optional"`
 
         // AgeUint64
-        AgeUint64  uint64 `json:"ageUint64"`
+        AgeUint64  uint64 `json:"ageUint64,optional"`
 
         // WeightFloat
-        WeightFloat  float64 `json:"weightFloat"`
+        WeightFloat  float64 `json:"weightFloat,optional"`
 
         // WeightFloat32
-        WeightFloat32  float32 `json:"weightFloat32"`
+        WeightFloat32  float32 `json:"weightFloat32,optional"`
 
         // ClassId
-        ClassId  string `json:"classId"`
+        ClassId  string `json:"classId,optional"`
 
         // EnrollAt
-        EnrollAt  int64 `json:"enrollAt"`
+        EnrollAt  int64 `json:"enrollAt,optional"`
 
         // StatusBool
-        StatusBool  bool `json:"statusBool"`
+        StatusBool  bool `json:"statusBool,optional"`
     }
 
-    // Create or update Student information request | 创建或更新Student信息
-    CreateOrUpdateStudentReq {
-        // ID
-        // Required: true
-        Id    uint64    `json:"id"`
-
-        // Name
-        Name  string `json:"name"`
-
-        // Age
-        Age  int64 `json:"age"`
-
-        // AgeInt32
-        AgeInt32  int32 `json:"ageInt32"`
-
-        // AgeInt64
-        AgeInt64  int64 `json:"ageInt64"`
-
-        // AgeUint
-        AgeUint  uint64 `json:"ageUint"`
-
-        // AgeUint32
-        AgeUint32  uint32 `json:"ageUint32"`
-
-        // AgeUint64
-        AgeUint64  uint64 `json:"ageUint64"`
-
-        // WeightFloat
-        WeightFloat  float64 `json:"weightFloat"`
-
-        // WeightFloat32
-        WeightFloat32  float32 `json:"weightFloat32"`
-
-        // ClassId
-        ClassId  string `json:"classId"`
-
-        // EnrollAt
-        EnrollAt  int64 `json:"enrollAt"`
-
-        // StatusBool
-        StatusBool  bool `json:"statusBool"`
-    }
-
-    // The response data of Student list | Student列表数据
+    // The response data of student list | Student列表数据
     StudentListResp {
         BaseDataInfo
 
-        // Student list data | API 列表数据
+        // Student list data | Student列表数据
         Data StudentListInfo `json:"data"`
     }
 
-    // Student list data | Student 列表数据
+    // Student list data | Student列表数据
     StudentListInfo {
         BaseListInfo
 
-        // The API list data | API列表数据
+        // The API list data | Student列表数据
         Data  []StudentInfo  `json:"data"`
     }
 
-    // Get Student list request params | Student列表请求参数
+    // Get student list request params | Student列表请求参数
     StudentListReq {
         PageInfo
 
         // Name
-        Name  string `json:"name"`
+        Name  string `json:"name,optional"`
+    }
 
-        // ClassId
-        ClassId  string `json:"classId"`
+    // Student information response | Student信息返回体
+    StudentInfoResp {
+        BaseDataInfo
+
+        // Student information | Student数据
+        Data StudentInfo `json:"data"`
     }
 )
 
@@ -120,19 +82,23 @@ type (
 )
 
 service example {
-    // Create or update Student information | 创建或更新Student
-    @handler createOrUpdateStudent
-    post /student/create_or_update (CreateOrUpdateStudentReq) returns (BaseMsgResp)
+    // Create student information | 创建Student
+    @handler createStudent
+    post /student/create (StudentInfo) returns (BaseMsgResp)
 
-    // Delete Student information | 删除Student信息
+    // Update student information | 更新Student
+    @handler updateStudent
+    post /student/update (StudentInfo) returns (BaseMsgResp)
+
+    // Delete student information | 删除Student信息
     @handler deleteStudent
-    post /student/delete (IDReq) returns (BaseMsgResp)
+    post /student/delete (IDsReq) returns (BaseMsgResp)
 
-    // Get Student list | 获取Student列表
+    // Get student list | 获取Student列表
     @handler getStudentList
     post /student/list (StudentListReq) returns (StudentListResp)
 
-    // Delete Student information | 删除Student信息
-    @handler batchDeleteStudent
-    post /student/batch_delete (IDsReq) returns (BaseMsgResp)
+    // Get student by ID | 通过ID获取Student
+    @handler getStudentById
+    post /student (IDReq) returns (StudentInfoResp)
 }
