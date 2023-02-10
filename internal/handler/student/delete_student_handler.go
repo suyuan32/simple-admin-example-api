@@ -12,22 +12,22 @@ import (
 
 // swagger:route post /student/delete student DeleteStudent
 //
-// Delete Student information | 删除Student信息
+// Delete student information | 删除Student信息
 //
-// Delete Student information | 删除Student信息
+// Delete student information | 删除Student信息
 //
 // Parameters:
 //  + name: body
 //    require: true
 //    in: body
-//    type: IDReq
+//    type: IDsReq
 //
 // Responses:
 //  200: BaseMsgResp
 
 func DeleteStudentHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.IDReq
+		var req types.IDsReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return

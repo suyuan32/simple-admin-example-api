@@ -4,10 +4,9 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/suyuan32/simple-admin-example-rpc/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -28,9 +27,9 @@ func NewDeleteStudentLogic(r *http.Request, svcCtx *svc.ServiceContext) *DeleteS
 	}
 }
 
-func (l *DeleteStudentLogic) DeleteStudent(req *types.IDReq) (resp *types.BaseMsgResp, err error) {
-	result, err := l.svcCtx.ExampleRpc.DeleteStudent(l.ctx, &example.IDReq{
-		Id: req.Id,
+func (l *DeleteStudentLogic) DeleteStudent(req *types.IDsReq) (resp *types.BaseMsgResp, err error) {
+	result, err := l.svcCtx.ExampleRpc.DeleteStudent(l.ctx, &example.IDsReq{
+		Ids: req.Ids,
 	})
 	if err != nil {
 		return nil, err

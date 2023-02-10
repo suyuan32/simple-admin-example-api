@@ -1,26 +1,25 @@
-package student
+package teacher
 
 import (
 	"context"
 	"net/http"
 
-	"github.com/suyuan32/simple-admin-example-rpc/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type CreateOrUpdateStudentLogic struct {
+type CreateTeacherLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 	lang   string
 }
 
-func NewCreateOrUpdateStudentLogic(r *http.Request, svcCtx *svc.ServiceContext) *CreateOrUpdateStudentLogic {
-	return &CreateOrUpdateStudentLogic{
+func NewCreateTeacherLogic(r *http.Request, svcCtx *svc.ServiceContext) *CreateTeacherLogic {
+	return &CreateTeacherLogic{
 		Logger: logx.WithContext(r.Context()),
 		ctx:    r.Context(),
 		svcCtx: svcCtx,
@@ -28,9 +27,9 @@ func NewCreateOrUpdateStudentLogic(r *http.Request, svcCtx *svc.ServiceContext) 
 	}
 }
 
-func (l *CreateOrUpdateStudentLogic) CreateOrUpdateStudent(req *types.CreateOrUpdateStudentReq) (resp *types.BaseMsgResp, err error) {
-	data, err := l.svcCtx.ExampleRpc.CreateOrUpdateStudent(l.ctx,
-		&example.StudentInfo{
+func (l *CreateTeacherLogic) CreateTeacher(req *types.TeacherInfo) (resp *types.BaseMsgResp, err error) {
+	data, err := l.svcCtx.SchoolRpc.CreateTeacher(l.ctx,
+		&example.TeacherInfo{
 			Id:            req.Id,
 			Name:          req.Name,
 			Age:           req.Age,

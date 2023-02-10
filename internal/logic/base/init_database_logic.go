@@ -4,8 +4,6 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/suyuan32/simple-admin-example-rpc/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
 
@@ -30,9 +28,6 @@ func NewInitDatabaseLogic(r *http.Request, svcCtx *svc.ServiceContext) *InitData
 
 func (l *InitDatabaseLogic) InitDatabase() (resp *types.BaseMsgResp, err error) {
 	// todo: add your logic here and delete this line
-	database, err := l.svcCtx.ExampleRpc.InitDatabase(l.ctx, &example.Empty{})
-	if err != nil {
-		return nil, err
-	}
-	return &types.BaseMsgResp{Msg: "success: " + database.Msg}, nil
+
+	return
 }

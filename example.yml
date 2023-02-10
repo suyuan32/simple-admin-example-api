@@ -87,143 +87,6 @@ definitions:
                 x-go-name: UpdatedAt
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
-    CreateOrUpdateStudentReq:
-        description: Create or update Student information request | 创建或更新Student信息
-        properties:
-            age:
-                description: Age
-                format: int64
-                type: integer
-                x-go-name: Age
-            ageInt32:
-                description: AgeInt32
-                format: int32
-                type: integer
-                x-go-name: AgeInt32
-            ageInt64:
-                description: AgeInt64
-                format: int64
-                type: integer
-                x-go-name: AgeInt64
-            ageUint:
-                description: AgeUint
-                format: uint64
-                type: integer
-                x-go-name: AgeUint
-            ageUint32:
-                description: AgeUint32
-                format: uint32
-                type: integer
-                x-go-name: AgeUint32
-            ageUint64:
-                description: AgeUint64
-                format: uint64
-                type: integer
-                x-go-name: AgeUint64
-            classId:
-                description: ClassId
-                type: string
-                x-go-name: ClassId
-            enrollAt:
-                description: EnrollAt
-                format: int64
-                type: integer
-                x-go-name: EnrollAt
-            id:
-                description: ID
-                format: uint64
-                type: integer
-                x-go-name: Id
-            name:
-                description: Name
-                type: string
-                x-go-name: Name
-            statusBool:
-                description: StatusBool
-                type: boolean
-                x-go-name: StatusBool
-            weightFloat:
-                description: WeightFloat
-                format: double
-                type: number
-                x-go-name: WeightFloat
-            weightFloat32:
-                description: WeightFloat32
-                format: float
-                type: number
-                x-go-name: WeightFloat32
-        required:
-            - id
-        type: object
-        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
-    CreateOrUpdateTeacherReq:
-        description: Create or update Teacher information request | 创建或更新Teacher信息
-        properties:
-            age:
-                description: Age
-                format: int64
-                type: integer
-                x-go-name: Age
-            ageInt32:
-                description: AgeInt32
-                format: int32
-                type: integer
-                x-go-name: AgeInt32
-            ageInt64:
-                description: AgeInt64
-                format: int64
-                type: integer
-                x-go-name: AgeInt64
-            ageUint:
-                description: AgeUint
-                format: uint64
-                type: integer
-                x-go-name: AgeUint
-            ageUint32:
-                description: AgeUint32
-                format: uint32
-                type: integer
-                x-go-name: AgeUint32
-            ageUint64:
-                description: AgeUint64
-                format: uint64
-                type: integer
-                x-go-name: AgeUint64
-            classId:
-                description: ClassId
-                type: string
-                x-go-name: ClassId
-            enrollAt:
-                description: EnrollAt
-                format: int64
-                type: integer
-                x-go-name: EnrollAt
-            id:
-                description: ID
-                type: string
-                x-go-name: Id
-            name:
-                description: Name
-                type: string
-                x-go-name: Name
-            statusBool:
-                description: StatusBool
-                type: boolean
-                x-go-name: StatusBool
-            weightFloat:
-                description: WeightFloat
-                format: double
-                type: number
-                x-go-name: WeightFloat
-            weightFloat32:
-                description: WeightFloat32
-                format: float
-                type: number
-                x-go-name: WeightFloat32
-        required:
-            - id
-        type: object
-        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     IDPathReq:
         description: Basic ID request | 基础ID地址参数请求
         properties:
@@ -280,43 +143,8 @@ definitions:
             - pageSize
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
-    StatusCodeReq:
-        description: The request params of setting status code | 设置状态参数
-        properties:
-            id:
-                description: ID
-                format: uint64
-                type: integer
-                x-go-name: Id
-            status:
-                description: Status code | 状态码
-                format: uint64
-                type: integer
-                x-go-name: Status
-        required:
-            - id
-            - status
-        type: object
-        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
-    StatusCodeUUIDReq:
-        description: The request params of setting status code by UUID | 根据UUID设置状态参数
-        properties:
-            id:
-                description: ID
-                type: string
-                x-go-name: Id
-            status:
-                description: Status code | 状态码
-                format: uint64
-                type: integer
-                x-go-name: Status
-        required:
-            - id
-            - status
-        type: object
-        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     StudentInfo:
-        description: The response data of Student information | Student信息
+        description: The response data of student information | Student信息
         properties:
             age:
                 description: Age
@@ -392,11 +220,30 @@ definitions:
                 x-go-name: WeightFloat32
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    StudentInfoResp:
+        description: Student information response | Student信息返回体
+        properties:
+            code:
+                description: Error code | 错误代码
+                format: int64
+                type: integer
+                x-go-name: Code
+            data:
+                $ref: '#/definitions/StudentInfo'
+                description: Data | 数据
+                type: string
+                x-go-name: Data
+            msg:
+                description: Message | 提示信息
+                type: string
+                x-go-name: Msg
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     StudentListInfo:
-        description: Student list data | Student 列表数据
+        description: Student list data | Student列表数据
         properties:
             data:
-                description: The API list data | API列表数据
+                description: The API list data | Student列表数据
                 items:
                     $ref: '#/definitions/StudentInfo'
                 type: array
@@ -409,12 +256,8 @@ definitions:
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     StudentListReq:
-        description: Get Student list request params | Student列表请求参数
+        description: Get student list request params | Student列表请求参数
         properties:
-            classId:
-                description: ClassId
-                type: string
-                x-go-name: ClassId
             name:
                 description: Name
                 type: string
@@ -436,7 +279,7 @@ definitions:
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     StudentListResp:
-        description: The response data of Student list | Student列表数据
+        description: The response data of student list | Student列表数据
         properties:
             code:
                 description: Error code | 错误代码
@@ -455,7 +298,7 @@ definitions:
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     TeacherInfo:
-        description: The response data of Teacher information | Teacher信息
+        description: The response data of teacher information | Teacher信息
         properties:
             age:
                 description: Age
@@ -530,11 +373,30 @@ definitions:
                 x-go-name: WeightFloat32
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
+    TeacherInfoResp:
+        description: Teacher information response | Teacher信息返回体
+        properties:
+            code:
+                description: Error code | 错误代码
+                format: int64
+                type: integer
+                x-go-name: Code
+            data:
+                $ref: '#/definitions/TeacherInfo'
+                description: Data | 数据
+                type: string
+                x-go-name: Data
+            msg:
+                description: Message | 提示信息
+                type: string
+                x-go-name: Msg
+        type: object
+        x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     TeacherListInfo:
-        description: Teacher list data | Teacher 列表数据
+        description: Teacher list data | Teacher列表数据
         properties:
             data:
-                description: The API list data | API列表数据
+                description: The API list data | Teacher列表数据
                 items:
                     $ref: '#/definitions/TeacherInfo'
                 type: array
@@ -547,12 +409,8 @@ definitions:
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     TeacherListReq:
-        description: Get Teacher list request params | Teacher列表请求参数
+        description: Get teacher list request params | Teacher列表请求参数
         properties:
-            classId:
-                description: ClassId
-                type: string
-                x-go-name: ClassId
             name:
                 description: Name
                 type: string
@@ -574,7 +432,7 @@ definitions:
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     TeacherListResp:
-        description: The response data of Teacher list | Teacher列表数据
+        description: The response data of teacher list | Teacher列表数据
         properties:
             code:
                 description: Error code | 错误代码
@@ -636,10 +494,46 @@ paths:
             summary: Initialize database | 初始化数据库
             tags:
                 - base
-    /student/batch_delete:
+    /student:
         post:
-            description: Delete Student information | 删除Student信息
-            operationId: BatchDeleteStudent
+            description: Get student by ID | 通过ID获取Student
+            operationId: GetStudentById
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/IDReq'
+                    type: object
+            responses:
+                "200":
+                    description: StudentInfoResp
+                    schema:
+                        $ref: '#/definitions/StudentInfoResp'
+            summary: Get student by ID | 通过ID获取Student
+            tags:
+                - student
+    /student/create:
+        post:
+            description: Create student information | 创建Student
+            operationId: CreateStudent
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/StudentInfo'
+                    type: object
+            responses:
+                "200":
+                    description: BaseMsgResp
+                    schema:
+                        $ref: '#/definitions/BaseMsgResp'
+            summary: Create student information | 创建Student
+            tags:
+                - student
+    /student/delete:
+        post:
+            description: Delete student information | 删除Student信息
+            operationId: DeleteStudent
             parameters:
                 - in: body
                   name: body
@@ -651,48 +545,12 @@ paths:
                     description: BaseMsgResp
                     schema:
                         $ref: '#/definitions/BaseMsgResp'
-            summary: Delete Student information | 删除Student信息
-            tags:
-                - student
-    /student/create_or_update:
-        post:
-            description: Create or update Student information | 创建或更新Student
-            operationId: CreateOrUpdateStudent
-            parameters:
-                - in: body
-                  name: body
-                  schema:
-                    $ref: '#/definitions/CreateOrUpdateStudentReq'
-                    type: object
-            responses:
-                "200":
-                    description: BaseMsgResp
-                    schema:
-                        $ref: '#/definitions/BaseMsgResp'
-            summary: Create or update Student information | 创建或更新Student
-            tags:
-                - student
-    /student/delete:
-        post:
-            description: Delete Student information | 删除Student信息
-            operationId: DeleteStudent
-            parameters:
-                - in: body
-                  name: body
-                  schema:
-                    $ref: '#/definitions/IDReq'
-                    type: object
-            responses:
-                "200":
-                    description: BaseMsgResp
-                    schema:
-                        $ref: '#/definitions/BaseMsgResp'
-            summary: Delete Student information | 删除Student信息
+            summary: Delete student information | 删除Student信息
             tags:
                 - student
     /student/list:
         post:
-            description: Get Student list | 获取Student列表
+            description: Get student list | 获取Student列表
             operationId: GetStudentList
             parameters:
                 - in: body
@@ -705,13 +563,67 @@ paths:
                     description: StudentListResp
                     schema:
                         $ref: '#/definitions/StudentListResp'
-            summary: Get Student list | 获取Student列表
+            summary: Get student list | 获取Student列表
             tags:
                 - student
-    /teacher/batch_delete:
+    /student/update:
         post:
-            description: Delete Teacher information | 删除Teacher信息
-            operationId: BatchDeleteTeacher
+            description: Update student information | 更新Student
+            operationId: UpdateStudent
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/StudentInfo'
+                    type: object
+            responses:
+                "200":
+                    description: BaseMsgResp
+                    schema:
+                        $ref: '#/definitions/BaseMsgResp'
+            summary: Update student information | 更新Student
+            tags:
+                - student
+    /teacher:
+        post:
+            description: Get teacher by ID | 通过ID获取Teacher
+            operationId: GetTeacherById
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/UUIDReq'
+                    type: object
+            responses:
+                "200":
+                    description: TeacherInfoResp
+                    schema:
+                        $ref: '#/definitions/TeacherInfoResp'
+            summary: Get teacher by ID | 通过ID获取Teacher
+            tags:
+                - teacher
+    /teacher/create:
+        post:
+            description: Create teacher information | 创建Teacher
+            operationId: CreateTeacher
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/TeacherInfo'
+                    type: object
+            responses:
+                "200":
+                    description: BaseMsgResp
+                    schema:
+                        $ref: '#/definitions/BaseMsgResp'
+            summary: Create teacher information | 创建Teacher
+            tags:
+                - teacher
+    /teacher/delete:
+        post:
+            description: Delete teacher information | 删除Teacher信息
+            operationId: DeleteTeacher
             parameters:
                 - in: body
                   name: body
@@ -723,48 +635,12 @@ paths:
                     description: BaseMsgResp
                     schema:
                         $ref: '#/definitions/BaseMsgResp'
-            summary: Delete Teacher information | 删除Teacher信息
-            tags:
-                - teacher
-    /teacher/create_or_update:
-        post:
-            description: Create or update Teacher information | 创建或更新Teacher
-            operationId: CreateOrUpdateTeacher
-            parameters:
-                - in: body
-                  name: body
-                  schema:
-                    $ref: '#/definitions/CreateOrUpdateTeacherReq'
-                    type: object
-            responses:
-                "200":
-                    description: BaseMsgResp
-                    schema:
-                        $ref: '#/definitions/BaseMsgResp'
-            summary: Create or update Teacher information | 创建或更新Teacher
-            tags:
-                - teacher
-    /teacher/delete:
-        post:
-            description: Delete Teacher information | 删除Teacher信息
-            operationId: DeleteTeacher
-            parameters:
-                - in: body
-                  name: body
-                  schema:
-                    $ref: '#/definitions/UUIDReq'
-                    type: object
-            responses:
-                "200":
-                    description: BaseMsgResp
-                    schema:
-                        $ref: '#/definitions/BaseMsgResp'
-            summary: Delete Teacher information | 删除Teacher信息
+            summary: Delete teacher information | 删除Teacher信息
             tags:
                 - teacher
     /teacher/list:
         post:
-            description: Get Teacher list | 获取Teacher列表
+            description: Get teacher list | 获取Teacher列表
             operationId: GetTeacherList
             parameters:
                 - in: body
@@ -777,7 +653,25 @@ paths:
                     description: TeacherListResp
                     schema:
                         $ref: '#/definitions/TeacherListResp'
-            summary: Get Teacher list | 获取Teacher列表
+            summary: Get teacher list | 获取Teacher列表
+            tags:
+                - teacher
+    /teacher/update:
+        post:
+            description: Update teacher information | 更新Teacher
+            operationId: UpdateTeacher
+            parameters:
+                - in: body
+                  name: body
+                  schema:
+                    $ref: '#/definitions/TeacherInfo'
+                    type: object
+            responses:
+                "200":
+                    description: BaseMsgResp
+                    schema:
+                        $ref: '#/definitions/BaseMsgResp'
+            summary: Update teacher information | 更新Teacher
             tags:
                 - teacher
 produces:

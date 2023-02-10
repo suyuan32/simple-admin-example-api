@@ -4,10 +4,9 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/suyuan32/simple-admin-example-rpc/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/suyuan32/simple-admin-core/pkg/i18n"
 	"github.com/zeromicro/go-zero/core/logx"
@@ -31,7 +30,7 @@ func NewGetTeacherListLogic(r *http.Request, svcCtx *svc.ServiceContext) *GetTea
 
 func (l *GetTeacherListLogic) GetTeacherList(req *types.TeacherListReq) (resp *types.TeacherListResp, err error) {
 	data, err := l.svcCtx.SchoolRpc.GetTeacherList(l.ctx,
-		&example.TeacherPageReq{
+		&example.TeacherListReq{
 			Page:     req.Page,
 			PageSize: req.PageSize,
 			Name:     req.Name,

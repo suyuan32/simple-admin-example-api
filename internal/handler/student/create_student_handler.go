@@ -1,40 +1,40 @@
-package teacher
+package student
 
 import (
 	"net/http"
 
 	"github.com/zeromicro/go-zero/rest/httpx"
 
-	"github.com/suyuan32/simple-admin-example-api/internal/logic/teacher"
+	"github.com/suyuan32/simple-admin-example-api/internal/logic/student"
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
 )
 
-// swagger:route post /teacher/batch_delete teacher BatchDeleteTeacher
+// swagger:route post /student/create student CreateStudent
 //
-// Delete Teacher information | 删除Teacher信息
+// Create student information | 创建Student
 //
-// Delete Teacher information | 删除Teacher信息
+// Create student information | 创建Student
 //
 // Parameters:
 //  + name: body
 //    require: true
 //    in: body
-//    type: UUIDsReq
+//    type: StudentInfo
 //
 // Responses:
 //  200: BaseMsgResp
 
-func BatchDeleteTeacherHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func CreateStudentHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.UUIDsReq
+		var req types.StudentInfo
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return
 		}
 
-		l := teacher.NewBatchDeleteTeacherLogic(r, svcCtx)
-		resp, err := l.BatchDeleteTeacher(&req)
+		l := student.NewCreateStudentLogic(r, svcCtx)
+		resp, err := l.CreateStudent(&req)
 		if err != nil {
 			err = svcCtx.Trans.TransError(r.Header.Get("Accept-Language"), err)
 			httpx.ErrorCtx(r.Context(), w, err)

@@ -12,9 +12,9 @@ import (
 
 // swagger:route post /teacher/list teacher GetTeacherList
 //
-// Get Teacher list | 获取Teacher列表
+// Get teacher list | 获取Teacher列表
 //
-// Get Teacher list | 获取Teacher列表
+// Get teacher list | 获取Teacher列表
 //
 // Parameters:
 //  + name: body
