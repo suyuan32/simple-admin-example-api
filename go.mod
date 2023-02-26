@@ -4,9 +4,9 @@ go 1.19
 
 require (
 	github.com/casbin/casbin/v2 v2.60.0
-	github.com/suyuan32/simple-admin-core v0.2.1
+	github.com/suyuan32/simple-admin-core v0.2.5
 	github.com/suyuan32/simple-admin-example-rpc v0.1.7-multiple.0.20230210031330-6c67b89b0752
-	github.com/zeromicro/go-zero v1.4.3
+	github.com/zeromicro/go-zero v1.4.4
 )
 
 require (
@@ -130,4 +130,4 @@ require (
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
 
-replace github.com/zeromicro/go-zero v1.4.3 => github.com/suyuan32/simple-admin-tools v0.1.6
+replace github.com/zeromicro/go-zero v1.4.4 => github.com/suyuan32/simple-admin-tools v0.2.1
