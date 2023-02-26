@@ -1,0 +1,104 @@
+import "base.api"
+
+type (
+    // The response data of teacher information | Teacher信息
+    TeacherInfo {
+        BaseUUIDInfo
+
+        // Name
+        Name  string `json:"name,optional"`
+
+        // Age
+        Age  int64 `json:"age,optional"`
+
+        // AgeInt32
+        AgeInt32  int32 `json:"ageInt32,optional"`
+
+        // AgeInt64
+        AgeInt64  int64 `json:"ageInt64,optional"`
+
+        // AgeUint
+        AgeUint  uint64 `json:"ageUint,optional"`
+
+        // AgeUint32
+        AgeUint32  uint32 `json:"ageUint32,optional"`
+
+        // AgeUint64
+        AgeUint64  uint64 `json:"ageUint64,optional"`
+
+        // WeightFloat
+        WeightFloat  float64 `json:"weightFloat,optional"`
+
+        // WeightFloat32
+        WeightFloat32  float32 `json:"weightFloat32,optional"`
+
+        // ClassId
+        ClassId  string `json:"classId,optional"`
+
+        // EnrollAt
+        EnrollAt  int64 `json:"enrollAt,optional"`
+
+        // StatusBool
+        StatusBool  bool `json:"statusBool,optional"`
+    }
+
+    // The response data of teacher list | Teacher列表数据
+    TeacherListResp {
+        BaseDataInfo
+
+        // Teacher list data | Teacher列表数据
+        Data TeacherListInfo `json:"data"`
+    }
+
+    // Teacher list data | Teacher列表数据
+    TeacherListInfo {
+        BaseListInfo
+
+        // The API list data | Teacher列表数据
+        Data  []TeacherInfo  `json:"data"`
+    }
+
+    // Get teacher list request params | Teacher列表请求参数
+    TeacherListReq {
+        PageInfo
+
+        // Name
+        Name  string `json:"name,optional"`
+    }
+
+    // Teacher information response | Teacher信息返回体
+    TeacherInfoResp {
+        BaseDataInfo
+
+        // Teacher information | Teacher数据
+        Data TeacherInfo `json:"data"`
+    }
+)
+
+@server(
+    jwt: Auth
+    group: teacher
+    middleware: Authority
+)
+
+service example {
+    // Create teacher information | 创建Teacher
+    @handler createTeacher
+    post /teacher/create (TeacherInfo) returns (BaseMsgResp)
+
+    // Update teacher information | 更新Teacher
+    @handler updateTeacher
+    post /teacher/update (TeacherInfo) returns (BaseMsgResp)
+
+    // Delete teacher information | 删除Teacher信息
+    @handler deleteTeacher
+    post /teacher/delete (UUIDsReq) returns (BaseMsgResp)
+
+    // Get teacher list | 获取Teacher列表
+    @handler getTeacherList
+    post /teacher/list (TeacherListReq) returns (TeacherListResp)
+
+    // Get teacher by ID | 通过ID获取Teacher
+    @handler getTeacherById
+    post /teacher (UUIDReq) returns (TeacherInfoResp)
+}
