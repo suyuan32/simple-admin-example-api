@@ -3,16 +3,15 @@ package svc
 import (
 	exampleClient "github.com/suyuan32/simple-admin-example-rpc/client/example"
 	schoolClient "github.com/suyuan32/simple-admin-example-rpc/client/school"
+	"github.com/zeromicro/go-zero/core/stores/redis"
 	"github.com/zeromicro/go-zero/zrpc"
 
 	"github.com/suyuan32/simple-admin-example-api/internal/config"
-	i18n2 "github.com/suyuan32/simple-admin-example-api/internal/i18n"
 	"github.com/suyuan32/simple-admin-example-api/internal/middleware"
 
 	"github.com/suyuan32/simple-admin-core/pkg/i18n"
 
 	"github.com/casbin/casbin/v2"
-	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/rest"
 )
 
@@ -26,26 +25,15 @@ type ServiceContext struct {
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
+	rds := redis.MustNewRedis(c.RedisConf)
 
-	rds := c.RedisConf.NewRedis()
-	if !rds.Ping() {
-		logx.Error("initialize redis failed")
-		return nil
-	}
+	cbn := c.CasbinConf.MustNewCasbinWithRedisWatcher(c.DatabaseConf.Type, c.DatabaseConf.GetDSN(), c.RedisConf)
 
-	cbn, err := c.CasbinConf.NewCasbin(c.DatabaseConf.Type, c.DatabaseConf.GetDSN())
-	if err != nil {
-		logx.Errorw("initialize casbin failed", logx.Field("detail", err.Error()))
-		return nil
-	}
-
-	trans := &i18n.Translator{}
-	trans.NewBundle(i18n2.LocaleFS)
-	trans.NewTranslator()
+	trans := i18n.NewTranslator(i18n.LocaleFS)
 
 	return &ServiceContext{
 		Config:     c,
-		Authority:  middleware.NewAuthorityMiddleware(cbn, rds).Handle,
+		Authority:  middleware.NewAuthorityMiddleware(cbn, rds, trans).Handle,
 		Trans:      trans,
 		ExampleRpc: exampleClient.NewExample(zrpc.MustNewClient(c.ExampleRpc)),
 		SchoolRpc:  schoolClient.NewSchool(zrpc.MustNewClient(c.SchoolRpc)),
