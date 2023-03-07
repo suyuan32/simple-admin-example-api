@@ -29,40 +29,6 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			[]rest.Route{
 				{
 					Method:  http.MethodPost,
-					Path:    "/student/create",
-					Handler: student.CreateStudentHandler(serverCtx),
-				},
-				{
-					Method:  http.MethodPost,
-					Path:    "/student/update",
-					Handler: student.UpdateStudentHandler(serverCtx),
-				},
-				{
-					Method:  http.MethodPost,
-					Path:    "/student/delete",
-					Handler: student.DeleteStudentHandler(serverCtx),
-				},
-				{
-					Method:  http.MethodPost,
-					Path:    "/student/list",
-					Handler: student.GetStudentListHandler(serverCtx),
-				},
-				{
-					Method:  http.MethodPost,
-					Path:    "/student",
-					Handler: student.GetStudentByIdHandler(serverCtx),
-				},
-			}...,
-		),
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
-	)
-
-	server.AddRoutes(
-		rest.WithMiddlewares(
-			[]rest.Middleware{serverCtx.Authority},
-			[]rest.Route{
-				{
-					Method:  http.MethodPost,
 					Path:    "/teacher/create",
 					Handler: teacher.CreateTeacherHandler(serverCtx),
 				},
@@ -85,6 +51,40 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 					Method:  http.MethodPost,
 					Path:    "/teacher",
 					Handler: teacher.GetTeacherByIdHandler(serverCtx),
+				},
+			}...,
+		),
+		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
+	)
+
+	server.AddRoutes(
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.Authority},
+			[]rest.Route{
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/create",
+					Handler: student.CreateStudentHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/update",
+					Handler: student.UpdateStudentHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/delete",
+					Handler: student.DeleteStudentHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/student/list",
+					Handler: student.GetStudentListHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/student",
+					Handler: student.GetStudentByIdHandler(serverCtx),
 				},
 			}...,
 		),

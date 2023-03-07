@@ -2,13 +2,13 @@ package teacher
 
 import (
 	"context"
-	"net/http"
+
+	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
-	"github.com/suyuan32/simple-admin-example-rpc/example"
 
-	"github.com/suyuan32/simple-admin-core/pkg/i18n"
+	"github.com/suyuan32/simple-admin-common/i18n"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -16,15 +16,13 @@ type GetTeacherByIdLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
-	lang   string
 }
 
-func NewGetTeacherByIdLogic(r *http.Request, svcCtx *svc.ServiceContext) *GetTeacherByIdLogic {
+func NewGetTeacherByIdLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetTeacherByIdLogic {
 	return &GetTeacherByIdLogic{
-		Logger: logx.WithContext(r.Context()),
-		ctx:    r.Context(),
+		Logger: logx.WithContext(ctx),
+		ctx:    ctx,
 		svcCtx: svcCtx,
-		lang:   r.Header.Get("Accept-Language"),
 	}
 }
 
@@ -37,7 +35,7 @@ func (l *GetTeacherByIdLogic) GetTeacherById(req *types.UUIDReq) (resp *types.Te
 	return &types.TeacherInfoResp{
 		BaseDataInfo: types.BaseDataInfo{
 			Code: 0,
-			Msg:  l.svcCtx.Trans.Trans(l.lang, i18n.Success),
+			Msg:  l.svcCtx.Trans.Trans(l.ctx, i18n.Success),
 		},
 		Data: types.TeacherInfo{
 			BaseUUIDInfo: types.BaseUUIDInfo{

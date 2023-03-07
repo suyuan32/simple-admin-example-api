@@ -2,12 +2,10 @@ package student
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -16,15 +14,13 @@ type UpdateStudentLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
-	lang   string
 }
 
-func NewUpdateStudentLogic(r *http.Request, svcCtx *svc.ServiceContext) *UpdateStudentLogic {
+func NewUpdateStudentLogic(ctx context.Context, svcCtx *svc.ServiceContext) *UpdateStudentLogic {
 	return &UpdateStudentLogic{
-		Logger: logx.WithContext(r.Context()),
-		ctx:    r.Context(),
+		Logger: logx.WithContext(ctx),
+		ctx:    ctx,
 		svcCtx: svcCtx,
-		lang:   r.Header.Get("Accept-Language"),
 	}
 }
 
@@ -48,5 +44,5 @@ func (l *UpdateStudentLogic) UpdateStudent(req *types.StudentInfo) (resp *types.
 	if err != nil {
 		return nil, err
 	}
-	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.lang, data.Msg)}, nil
+	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
 }

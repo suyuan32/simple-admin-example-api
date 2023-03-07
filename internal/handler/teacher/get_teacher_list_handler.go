@@ -33,10 +33,10 @@ func GetTeacherListHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 			return
 		}
 
-		l := teacher.NewGetTeacherListLogic(r, svcCtx)
+		l := teacher.NewGetTeacherListLogic(r.Context(), svcCtx)
 		resp, err := l.GetTeacherList(&req)
 		if err != nil {
-			err = svcCtx.Trans.TransError(r.Header.Get("Accept-Language"), err)
+			err = svcCtx.Trans.TransError(r.Context(), err)
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
 			httpx.OkJsonCtx(r.Context(), w, resp)

@@ -2,11 +2,11 @@ package teacher
 
 import (
 	"context"
-	"net/http"
+
+	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
-	"github.com/suyuan32/simple-admin-example-rpc/example"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -15,15 +15,13 @@ type DeleteTeacherLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
-	lang   string
 }
 
-func NewDeleteTeacherLogic(r *http.Request, svcCtx *svc.ServiceContext) *DeleteTeacherLogic {
+func NewDeleteTeacherLogic(ctx context.Context, svcCtx *svc.ServiceContext) *DeleteTeacherLogic {
 	return &DeleteTeacherLogic{
-		Logger: logx.WithContext(r.Context()),
-		ctx:    r.Context(),
+		Logger: logx.WithContext(ctx),
+		ctx:    ctx,
 		svcCtx: svcCtx,
-		lang:   r.Header.Get("Accept-Language"),
 	}
 }
 
@@ -35,5 +33,5 @@ func (l *DeleteTeacherLogic) DeleteTeacher(req *types.UUIDsReq) (resp *types.Bas
 		return nil, err
 	}
 
-	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.lang, result.Msg)}, nil
+	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, result.Msg)}, nil
 }

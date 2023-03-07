@@ -2,7 +2,6 @@ package student
 
 import (
 	"context"
-	"net/http"
 
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
@@ -15,15 +14,13 @@ type DeleteStudentLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
-	lang   string
 }
 
-func NewDeleteStudentLogic(r *http.Request, svcCtx *svc.ServiceContext) *DeleteStudentLogic {
+func NewDeleteStudentLogic(ctx context.Context, svcCtx *svc.ServiceContext) *DeleteStudentLogic {
 	return &DeleteStudentLogic{
-		Logger: logx.WithContext(r.Context()),
-		ctx:    r.Context(),
+		Logger: logx.WithContext(ctx),
+		ctx:    ctx,
 		svcCtx: svcCtx,
-		lang:   r.Header.Get("Accept-Language"),
 	}
 }
 
@@ -35,5 +32,5 @@ func (l *DeleteStudentLogic) DeleteStudent(req *types.IDsReq) (resp *types.BaseM
 		return nil, err
 	}
 
-	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.lang, result.Msg)}, nil
+	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, result.Msg)}, nil
 }
