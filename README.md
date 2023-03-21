@@ -4,7 +4,7 @@ Ent api 生成例子
 # 生成命令
 
 ```shell
-goctls api new example --i18n=true --casbin=true --go_zero_version=v1.4.4 --tool_version=v0.2.1 --trans_err=true --module_name=github.com/suyuan32/simple-admin-example-api --port=8081
+goctls api new example --i18n=true --casbin=true --go_zero_version=v1.5.0 --tool_version=v0.2.8 --trans_err=true --module_name=github.com/suyuan32/simple-admin-example-api --port=8081
 
 cd example
 

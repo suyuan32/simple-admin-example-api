@@ -151,6 +151,21 @@ definitions:
                 format: int64
                 type: integer
                 x-go-name: Age
+            ageInt:
+                description: AgeInt
+                format: int64
+                type: integer
+                x-go-name: AgeInt
+            ageInt8:
+                description: AgeInt8
+                format: int32
+                type: integer
+                x-go-name: AgeInt8
+            ageInt16:
+                description: AgeInt16
+                format: int32
+                type: integer
+                x-go-name: AgeInt16
             ageInt32:
                 description: AgeInt32
                 format: int32
@@ -166,6 +181,16 @@ definitions:
                 format: uint64
                 type: integer
                 x-go-name: AgeUint
+            ageUint8:
+                description: AgeUint8
+                format: uint32
+                type: integer
+                x-go-name: AgeUint8
+            ageUint16:
+                description: AgeUint16
+                format: uint32
+                type: integer
+                x-go-name: AgeUint16
             ageUint32:
                 description: AgeUint32
                 format: uint32
