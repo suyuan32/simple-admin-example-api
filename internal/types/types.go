@@ -91,8 +91,8 @@ type UUIDsReq struct {
 }
 
 // The base response data | 基础信息
-// swagger:model BaseInfo
-type BaseInfo struct {
+// swagger:model BaseIDInfo
+type BaseIDInfo struct {
 	// ID
 	Id uint64 `json:"id"`
 	// Create date | 创建日期
@@ -177,7 +177,7 @@ type TeacherInfoResp struct {
 // The response data of student information | Student信息
 // swagger:model StudentInfo
 type StudentInfo struct {
-	BaseInfo
+	BaseIDInfo
 	// Name
 	Name string `json:"name,optional"`
 	// Age

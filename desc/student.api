@@ -3,7 +3,7 @@ import "base.api"
 type (
     // The response data of student information | Student信息
     StudentInfo {
-        BaseInfo
+        BaseIDInfo
 
         // Name
         Name  string `json:"name,optional"`

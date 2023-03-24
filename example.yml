@@ -20,7 +20,7 @@ definitions:
                 x-go-name: Msg
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
-    BaseInfo:
+    BaseIDInfo:
         description: The base response data | 基础信息
         properties:
             createdAt:

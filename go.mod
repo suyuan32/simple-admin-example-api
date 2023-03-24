@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/casbin/casbin/v2 v2.65.2
 	github.com/suyuan32/simple-admin-common v0.2.8
-	github.com/suyuan32/simple-admin-example-rpc v0.2.8
+	github.com/suyuan32/simple-admin-example-rpc v0.2.9-beta
 	github.com/zeromicro/go-zero v1.5.0
 )
 
