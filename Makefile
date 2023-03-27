@@ -37,11 +37,6 @@ gen-api: # Generate API files from proto | 生成 API 的代码
 	swagger generate spec --output=./$(PROJECT).yml --scan-models
 	@echo "Generate API successfully"
 
-.PHONY: gen-ent
-gen-ent: # Generate Ent codes | 生成 Ent 的代码
-	go run -mod=mod entgo.io/ent/cmd/ent generate --template glob="./ent/template/*.tmpl" ./ent/schema
-	@echo "Generate Ent successfully"
-
 .PHONY: build-win
 build-win: # Build project for Windows | 构建Windows下的可执行文件
 	env CGO_ENABLED=0 GOOS=windows go build -ldflags "$(LDFLAGS)" -o $(PROJECT).exe $(PROJECT).go
