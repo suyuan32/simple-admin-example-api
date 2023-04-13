@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/casbin/casbin/v2 v2.66.0
-	github.com/suyuan32/simple-admin-common v0.3.0
+	github.com/suyuan32/simple-admin-common v0.3.2
 	github.com/suyuan32/simple-admin-example-rpc v0.3.2
 	github.com/zeromicro/go-zero v1.5.1
 )
@@ -102,11 +102,11 @@ require (
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
 	golang.org/x/mod v0.9.0 // indirect
-	golang.org/x/net v0.8.0 // indirect
+	golang.org/x/net v0.9.0 // indirect
 	golang.org/x/oauth2 v0.6.0 // indirect
 	golang.org/x/sys v0.7.0 // indirect
-	golang.org/x/term v0.6.0 // indirect
-	golang.org/x/text v0.8.0 // indirect
+	golang.org/x/term v0.7.0 // indirect
+	golang.org/x/text v0.9.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230327215041-6ac7f18bb9d5 // indirect
@@ -126,4 +126,4 @@ require (
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
 
-replace github.com/zeromicro/go-zero v1.5.1 => github.com/suyuan32/simple-admin-tools v0.3.2
+replace github.com/zeromicro/go-zero v1.5.1 => github.com/suyuan32/simple-admin-tools v0.3.3-beta

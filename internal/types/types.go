@@ -90,7 +90,7 @@ type UUIDsReq struct {
 	Ids []string `json:"ids"`
 }
 
-// The base response data | 基础信息
+// The base ID response data | 基础ID信息
 // swagger:model BaseIDInfo
 type BaseIDInfo struct {
 	// ID
@@ -101,7 +101,7 @@ type BaseIDInfo struct {
 	UpdatedAt int64 `json:"updatedAt,optional"`
 }
 
-// The base UUID response data | 基础信息
+// The base UUID response data | 基础UUID信息
 // swagger:model BaseUUIDInfo
 type BaseUUIDInfo struct {
 	// ID

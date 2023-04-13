@@ -28,7 +28,6 @@ func NewCreateStudentLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Cre
 func (l *CreateStudentLogic) CreateStudent(req *types.StudentInfo) (resp *types.BaseMsgResp, err error) {
 	data, err := l.svcCtx.ExampleRpc.CreateStudent(l.ctx,
 		&example.StudentInfo{
-			Id:            req.Id,
 			Name:          req.Name,
 			Age:           req.Age,
 			AgeInt8:       req.AgeInt8,

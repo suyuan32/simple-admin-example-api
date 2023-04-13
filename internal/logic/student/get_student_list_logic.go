@@ -3,9 +3,10 @@ package student
 import (
 	"context"
 
+	"github.com/suyuan32/simple-admin-example-rpc/types/example"
+
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
-	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
 	"github.com/suyuan32/simple-admin-common/i18n"
 	"github.com/zeromicro/go-zero/core/logx"

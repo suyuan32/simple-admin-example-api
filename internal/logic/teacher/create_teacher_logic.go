@@ -3,9 +3,10 @@ package teacher
 import (
 	"context"
 
+	"github.com/suyuan32/simple-admin-example-rpc/types/example"
+
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
-	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -27,7 +28,6 @@ func NewCreateTeacherLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Cre
 func (l *CreateTeacherLogic) CreateTeacher(req *types.TeacherInfo) (resp *types.BaseMsgResp, err error) {
 	data, err := l.svcCtx.ExampleRpc.CreateTeacher(l.ctx,
 		&example.TeacherInfo{
-			Id:            req.Id,
 			Name:          req.Name,
 			Age:           req.Age,
 			AgeInt32:      req.AgeInt32,

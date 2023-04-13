@@ -21,7 +21,7 @@ definitions:
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     BaseIDInfo:
-        description: The base response data | 基础信息
+        description: The base ID response data | 基础ID信息
         properties:
             createdAt:
                 description: Create date | 创建日期
@@ -69,7 +69,7 @@ definitions:
         type: object
         x-go-package: github.com/suyuan32/simple-admin-example-api/internal/types
     BaseUUIDInfo:
-        description: The base UUID response data | 基础信息
+        description: The base UUID response data | 基础UUID信息
         properties:
             createdAt:
                 description: Create date | 创建日期
