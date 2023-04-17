@@ -3,22 +3,22 @@ module github.com/suyuan32/simple-admin-example-api
 go 1.20
 
 require (
-	github.com/casbin/casbin/v2 v2.66.0
-	github.com/suyuan32/simple-admin-common v0.3.2
-	github.com/suyuan32/simple-admin-example-rpc v0.3.2
+	github.com/casbin/casbin/v2 v2.66.1
+	github.com/suyuan32/simple-admin-common v1.0.0
+	github.com/suyuan32/simple-admin-example-rpc v1.0.0
 	github.com/zeromicro/go-zero v1.5.1
 )
 
 require (
 	ariga.io/atlas v0.10.0 // indirect
 	ariga.io/entcache v0.1.1-0.20220825100256-1b8bbeb21c75 // indirect
-	entgo.io/ent v0.11.10 // indirect
+	entgo.io/ent v0.12.1 // indirect
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/casbin/ent-adapter v0.3.0 // indirect
-	github.com/casbin/redis-watcher/v2 v2.4.1 // indirect
+	github.com/casbin/redis-watcher/v2 v2.5.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.0 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
@@ -81,6 +81,7 @@ require (
 	github.com/prometheus/client_model v0.3.0 // indirect
 	github.com/prometheus/common v0.42.0 // indirect
 	github.com/prometheus/procfs v0.9.0 // indirect
+	github.com/redis/go-redis/v9 v9.0.3 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/zclconf/go-cty v1.13.1 // indirect
 	go.etcd.io/etcd/api/v3 v3.5.7 // indirect
@@ -100,7 +101,7 @@ require (
 	go.uber.org/automaxprocs v1.5.2 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
-	golang.org/x/crypto v0.7.0 // indirect
+	golang.org/x/crypto v0.8.0 // indirect
 	golang.org/x/mod v0.9.0 // indirect
 	golang.org/x/net v0.9.0 // indirect
 	golang.org/x/oauth2 v0.6.0 // indirect
@@ -126,4 +127,4 @@ require (
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
 
-replace github.com/zeromicro/go-zero v1.5.1 => github.com/suyuan32/simple-admin-tools v0.3.3-beta
+replace github.com/zeromicro/go-zero v1.5.1 => github.com/suyuan32/simple-admin-tools v1.5.2
