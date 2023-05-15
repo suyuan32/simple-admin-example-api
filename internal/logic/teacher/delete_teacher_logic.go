@@ -25,12 +25,12 @@ func NewDeleteTeacherLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Del
 }
 
 func (l *DeleteTeacherLogic) DeleteTeacher(req *types.UUIDsReq) (resp *types.BaseMsgResp, err error) {
-	result, err := l.svcCtx.ExampleRpc.DeleteTeacher(l.ctx, &example.UUIDsReq{
+	data, err := l.svcCtx.ExampleRpc.DeleteTeacher(l.ctx, &example.UUIDsReq{
 		Ids: req.Ids,
 	})
 	if err != nil {
 		return nil, err
 	}
 
-	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, result.Msg)}, nil
+	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
 }

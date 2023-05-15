@@ -3,10 +3,9 @@ package student
 import (
 	"context"
 
-	"github.com/suyuan32/simple-admin-example-rpc/types/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -26,12 +25,12 @@ func NewDeleteStudentLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Del
 }
 
 func (l *DeleteStudentLogic) DeleteStudent(req *types.IDsReq) (resp *types.BaseMsgResp, err error) {
-	result, err := l.svcCtx.ExampleRpc.DeleteStudent(l.ctx, &example.IDsReq{
+	data, err := l.svcCtx.ExampleRpc.DeleteStudent(l.ctx, &example.IDsReq{
 		Ids: req.Ids,
 	})
 	if err != nil {
 		return nil, err
 	}
 
-	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, result.Msg)}, nil
+	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
 }

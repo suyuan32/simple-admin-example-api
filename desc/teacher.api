@@ -81,7 +81,7 @@ type (
     middleware: Authority
 )
 
-service example {
+service Example {
     // Create teacher information | 创建Teacher
     @handler createTeacher
     post /teacher/create (TeacherInfo) returns (BaseMsgResp)

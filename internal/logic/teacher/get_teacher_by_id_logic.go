@@ -34,7 +34,7 @@ func (l *GetTeacherByIdLogic) GetTeacherById(req *types.UUIDReq) (resp *types.Te
 	return &types.TeacherInfoResp{
 		BaseDataInfo: types.BaseDataInfo{
 			Code: 0,
-			Msg:  l.svcCtx.Trans.Trans(l.ctx, i18n.Success),
+			Msg:  l.svcCtx.Trans.Trans(l.ctx, data.Msg),
 		},
 		Data: types.TeacherInfo{
 			BaseUUIDInfo: types.BaseUUIDInfo{
