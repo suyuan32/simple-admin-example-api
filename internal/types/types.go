@@ -94,22 +94,22 @@ type UUIDsReq struct {
 // swagger:model BaseIDInfo
 type BaseIDInfo struct {
 	// ID
-	Id uint64 `json:"id,optional"`
+	Id *uint64 `json:"id,optional"`
 	// Create date | 创建日期
-	CreatedAt int64 `json:"createdAt,optional"`
+	CreatedAt *int64 `json:"createdAt,optional"`
 	// Update date | 更新日期
-	UpdatedAt int64 `json:"updatedAt,optional"`
+	UpdatedAt *int64 `json:"updatedAt,optional"`
 }
 
 // The base UUID response data | 基础UUID信息
 // swagger:model BaseUUIDInfo
 type BaseUUIDInfo struct {
 	// ID
-	Id string `json:"id,optional"`
+	Id *string `json:"id,optional"`
 	// Create date | 创建日期
-	CreatedAt int64 `json:"createdAt,optional"`
+	CreatedAt *int64 `json:"createdAt,optional"`
 	// Update date | 更新日期
-	UpdatedAt int64 `json:"updatedAt,optional"`
+	UpdatedAt *int64 `json:"updatedAt,optional"`
 }
 
 // The response data of teacher information | Teacher信息
@@ -117,29 +117,29 @@ type BaseUUIDInfo struct {
 type TeacherInfo struct {
 	BaseUUIDInfo
 	// Name
-	Name string `json:"name,optional"`
+	Name *string `json:"name,optional"`
 	// Age
-	Age int64 `json:"age,optional"`
+	Age *int64 `json:"age,optional"`
 	// AgeInt32
-	AgeInt32 int32 `json:"ageInt32,optional"`
+	AgeInt32 *int32 `json:"ageInt32,optional"`
 	// AgeInt64
-	AgeInt64 int64 `json:"ageInt64,optional"`
+	AgeInt64 *int64 `json:"ageInt64,optional"`
 	// AgeUint
-	AgeUint uint64 `json:"ageUint,optional"`
+	AgeUint *uint64 `json:"ageUint,optional"`
 	// AgeUint32
-	AgeUint32 uint32 `json:"ageUint32,optional"`
+	AgeUint32 *uint32 `json:"ageUint32,optional"`
 	// AgeUint64
-	AgeUint64 uint64 `json:"ageUint64,optional"`
+	AgeUint64 *uint64 `json:"ageUint64,optional"`
 	// WeightFloat
-	WeightFloat float64 `json:"weightFloat,optional"`
+	WeightFloat *float64 `json:"weightFloat,optional"`
 	// WeightFloat32
-	WeightFloat32 float32 `json:"weightFloat32,optional"`
+	WeightFloat32 *float32 `json:"weightFloat32,optional"`
 	// ClassId
-	ClassId string `json:"classId,optional"`
+	ClassId *string `json:"classId,optional"`
 	// EnrollAt
-	EnrollAt int64 `json:"enrollAt,optional"`
+	EnrollAt *int64 `json:"enrollAt,optional"`
 	// StatusBool
-	StatusBool bool `json:"statusBool,optional"`
+	StatusBool *bool `json:"statusBool,optional"`
 }
 
 // The response data of teacher list | Teacher列表数据
@@ -163,7 +163,7 @@ type TeacherListInfo struct {
 type TeacherListReq struct {
 	PageInfo
 	// Name
-	Name string `json:"name,optional"`
+	Name *string `json:"name,optional"`
 }
 
 // Teacher information response | Teacher信息返回体
@@ -179,39 +179,39 @@ type TeacherInfoResp struct {
 type StudentInfo struct {
 	BaseIDInfo
 	// Name
-	Name string `json:"name,optional"`
+	Name *string `json:"name,optional"`
 	// Age
-	Age int64 `json:"age,optional"`
+	Age *int64 `json:"age,optional"`
 	// AgeInt8
-	AgeInt8 int32 `json:"ageInt8,optional"`
+	AgeInt8 *int32 `json:"ageInt8,optional"`
 	// AgeUint8
-	AgeUint8 uint32 `json:"ageUint8,optional"`
+	AgeUint8 *uint32 `json:"ageUint8,optional"`
 	// AgeInt16
-	AgeInt16 int32 `json:"ageInt16,optional"`
+	AgeInt16 *int32 `json:"ageInt16,optional"`
 	// AgeUint16
-	AgeUint16 uint32 `json:"ageUint16,optional"`
+	AgeUint16 *uint32 `json:"ageUint16,optional"`
 	// AgeInt32
-	AgeInt32 int32 `json:"ageInt32,optional"`
+	AgeInt32 *int32 `json:"ageInt32,optional"`
 	// AgeUint32
-	AgeUint32 uint32 `json:"ageUint32,optional"`
+	AgeUint32 *uint32 `json:"ageUint32,optional"`
 	// AgeInt64
-	AgeInt64 int64 `json:"ageInt64,optional"`
+	AgeInt64 *int64 `json:"ageInt64,optional"`
 	// AgeUint64
-	AgeUint64 uint64 `json:"ageUint64,optional"`
+	AgeUint64 *uint64 `json:"ageUint64,optional"`
 	// AgeInt
-	AgeInt int64 `json:"ageInt,optional"`
+	AgeInt *int64 `json:"ageInt,optional"`
 	// AgeUint
-	AgeUint uint64 `json:"ageUint,optional"`
+	AgeUint *uint64 `json:"ageUint,optional"`
 	// WeightFloat
-	WeightFloat float64 `json:"weightFloat,optional"`
+	WeightFloat *float64 `json:"weightFloat,optional"`
 	// WeightFloat32
-	WeightFloat32 float32 `json:"weightFloat32,optional"`
+	WeightFloat32 *float32 `json:"weightFloat32,optional"`
 	// ClassId
-	ClassId string `json:"classId,optional"`
+	ClassId *string `json:"classId,optional"`
 	// EnrollAt
-	EnrollAt int64 `json:"enrollAt,optional"`
+	EnrollAt *int64 `json:"enrollAt,optional"`
 	// StatusBool
-	StatusBool bool `json:"statusBool,optional"`
+	StatusBool *bool `json:"statusBool,optional"`
 }
 
 // The response data of student list | Student列表数据
@@ -235,7 +235,7 @@ type StudentListInfo struct {
 type StudentListReq struct {
 	PageInfo
 	// Name
-	Name string `json:"name,optional"`
+	Name *string `json:"name,optional"`
 }
 
 // Student information response | Student信息返回体

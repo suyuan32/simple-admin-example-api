@@ -3,9 +3,10 @@ package student
 import (
 	"context"
 
+	"github.com/suyuan32/simple-admin-example-rpc/types/example"
+
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
-	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
 	"github.com/suyuan32/simple-admin-common/i18n"
 	"github.com/zeromicro/go-zero/core/logx"
@@ -34,7 +35,7 @@ func (l *GetStudentByIdLogic) GetStudentById(req *types.IDReq) (resp *types.Stud
 	return &types.StudentInfoResp{
 		BaseDataInfo: types.BaseDataInfo{
 			Code: 0,
-			Msg:  l.svcCtx.Trans.Trans(l.ctx, data.Msg),
+			Msg:  l.svcCtx.Trans.Trans(l.ctx, i18n.Success),
 		},
 		Data: types.StudentInfo{
 			BaseIDInfo: types.BaseIDInfo{

@@ -3,9 +3,10 @@ package teacher
 import (
 	"context"
 
+	"github.com/suyuan32/simple-admin-example-rpc/types/example"
+
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
-	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
 	"github.com/suyuan32/simple-admin-common/i18n"
 	"github.com/zeromicro/go-zero/core/logx"
@@ -36,7 +37,7 @@ func (l *GetTeacherListLogic) GetTeacherList(req *types.TeacherListReq) (resp *t
 		return nil, err
 	}
 	resp = &types.TeacherListResp{}
-	resp.Msg = l.svcCtx.Trans.Trans(l.ctx, data.Msg)
+	resp.Msg = l.svcCtx.Trans.Trans(l.ctx, i18n.Success)
 	resp.Data.Total = data.GetTotal()
 
 	for _, v := range data.Data {
