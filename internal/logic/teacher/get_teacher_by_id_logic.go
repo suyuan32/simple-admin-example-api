@@ -3,10 +3,9 @@ package teacher
 import (
 	"context"
 
-	"github.com/suyuan32/simple-admin-example-rpc/types/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
 	"github.com/suyuan32/simple-admin-common/i18n"
 	"github.com/zeromicro/go-zero/core/logx"
@@ -35,7 +34,7 @@ func (l *GetTeacherByIdLogic) GetTeacherById(req *types.UUIDReq) (resp *types.Te
 	return &types.TeacherInfoResp{
 		BaseDataInfo: types.BaseDataInfo{
 			Code: 0,
-			Msg:  l.svcCtx.Trans.Trans(l.ctx, i18n.Success),
+			Msg:  "successful",
 		},
 		Data: types.TeacherInfo{
 			BaseUUIDInfo: types.BaseUUIDInfo{

@@ -7,7 +7,6 @@ import (
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
 	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
-	"github.com/suyuan32/simple-admin-common/i18n"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -49,16 +48,11 @@ func (l *GetStudentListLogic) GetStudentList(req *types.StudentListReq) (resp *t
 				},
 				Name:          v.Name,
 				Age:           v.Age,
-				AgeInt8:       v.AgeInt8,
-				AgeUint8:      v.AgeUint8,
-				AgeInt16:      v.AgeInt16,
-				AgeUint16:     v.AgeUint16,
 				AgeInt32:      v.AgeInt32,
-				AgeUint32:     v.AgeUint32,
 				AgeInt64:      v.AgeInt64,
-				AgeUint64:     v.AgeUint64,
-				AgeInt:        v.AgeInt,
 				AgeUint:       v.AgeUint,
+				AgeUint32:     v.AgeUint32,
+				AgeUint64:     v.AgeUint64,
 				WeightFloat:   v.WeightFloat,
 				WeightFloat32: v.WeightFloat32,
 				ClassId:       v.ClassId,

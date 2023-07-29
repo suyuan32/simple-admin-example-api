@@ -4,7 +4,7 @@ Port: 8081
 Timeout: 30000
 
 Auth:
-  AccessSecret: # the same as core
+  AccessSecret: adfadfasfadsfa # the same as core
   AccessExpire: 259200
 
 Log:

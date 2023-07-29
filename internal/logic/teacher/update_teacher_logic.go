@@ -3,10 +3,9 @@ package teacher
 import (
 	"context"
 
-	"github.com/suyuan32/simple-admin-example-rpc/types/example"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/svc"
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
+	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -45,5 +44,5 @@ func (l *UpdateTeacherLogic) UpdateTeacher(req *types.TeacherInfo) (resp *types.
 	if err != nil {
 		return nil, err
 	}
-	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
+	return &types.BaseMsgResp{Msg: data.Msg}, nil
 }
