@@ -44,5 +44,5 @@ func (l *UpdateStudentLogic) UpdateStudent(req *types.StudentInfo) (resp *types.
 	if err != nil {
 		return nil, err
 	}
-	return &types.BaseMsgResp{Msg: data.Msg}, nil
+	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
 }

@@ -36,7 +36,7 @@ func (l *GetStudentListLogic) GetStudentList(req *types.StudentListReq) (resp *t
 		return nil, err
 	}
 	resp = &types.StudentListResp{}
-	resp.Msg = "successful"
+	resp.Msg = l.svcCtx.Trans.Trans(l.ctx, i18n.Success)
 	resp.Data.Total = data.GetTotal()
 
 	for _, v := range data.Data {
