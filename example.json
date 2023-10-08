@@ -505,22 +505,10 @@
       "type": "object",
       "properties": {
         "age": {
-          "description": "Age",
+          "description": "年龄",
           "type": "integer",
           "format": "int64",
           "x-go-name": "Age"
-        },
-        "ageInt": {
-          "description": "AgeInt",
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "AgeInt"
-        },
-        "ageInt16": {
-          "description": "AgeInt16",
-          "type": "integer",
-          "format": "int32",
-          "x-go-name": "AgeInt16"
         },
         "ageInt32": {
           "description": "AgeInt32",
@@ -534,23 +522,11 @@
           "format": "int64",
           "x-go-name": "AgeInt64"
         },
-        "ageInt8": {
-          "description": "AgeInt8",
-          "type": "integer",
-          "format": "int32",
-          "x-go-name": "AgeInt8"
-        },
         "ageUint": {
           "description": "AgeUint",
           "type": "integer",
           "format": "uint64",
           "x-go-name": "AgeUint"
-        },
-        "ageUint16": {
-          "description": "AgeUint16",
-          "type": "integer",
-          "format": "uint32",
-          "x-go-name": "AgeUint16"
         },
         "ageUint32": {
           "description": "AgeUint32",
@@ -563,12 +539,6 @@
           "type": "integer",
           "format": "uint64",
           "x-go-name": "AgeUint64"
-        },
-        "ageUint8": {
-          "description": "AgeUint8",
-          "type": "integer",
-          "format": "uint32",
-          "x-go-name": "AgeUint8"
         },
         "classId": {
           "description": "ClassId",
@@ -594,7 +564,7 @@
           "x-go-name": "Id"
         },
         "name": {
-          "description": "Name",
+          "description": "姓名",
           "type": "string",
           "x-go-name": "Name"
         },

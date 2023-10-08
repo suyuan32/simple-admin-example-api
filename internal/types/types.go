@@ -178,30 +178,20 @@ type TeacherInfoResp struct {
 // swagger:model StudentInfo
 type StudentInfo struct {
 	BaseIDInfo
-	// Name
+	// 姓名
 	Name *string `json:"name,optional"`
-	// Age
+	// 年龄
 	Age *int64 `json:"age,optional"`
-	// AgeInt8
-	AgeInt8 *int32 `json:"ageInt8,optional"`
-	// AgeUint8
-	AgeUint8 *uint32 `json:"ageUint8,optional"`
-	// AgeInt16
-	AgeInt16 *int32 `json:"ageInt16,optional"`
-	// AgeUint16
-	AgeUint16 *uint32 `json:"ageUint16,optional"`
 	// AgeInt32
 	AgeInt32 *int32 `json:"ageInt32,optional"`
-	// AgeUint32
-	AgeUint32 *uint32 `json:"ageUint32,optional"`
 	// AgeInt64
 	AgeInt64 *int64 `json:"ageInt64,optional"`
-	// AgeUint64
-	AgeUint64 *uint64 `json:"ageUint64,optional"`
-	// AgeInt
-	AgeInt *int64 `json:"ageInt,optional"`
 	// AgeUint
 	AgeUint *uint64 `json:"ageUint,optional"`
+	// AgeUint32
+	AgeUint32 *uint32 `json:"ageUint32,optional"`
+	// AgeUint64
+	AgeUint64 *uint64 `json:"ageUint64,optional"`
 	// WeightFloat
 	WeightFloat *float64 `json:"weightFloat,optional"`
 	// WeightFloat32
