@@ -5,10 +5,10 @@ type (
     StudentInfo {
         BaseIDInfo
 
-        // Name
+        // 姓名
         Name  *string `json:"name,optional"`
 
-        // Age
+        // 年龄
         Age  *int64 `json:"age,optional"`
 
         // AgeInt32
