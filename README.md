@@ -1,4 +1,4 @@
-# simple-admin-example-api tool v1.1.5 gen by tools v1.6.6
+# simple-admin-example-api tool v1.6.21 gen by tools v1.6.21
 Ent api 生成例子
 
 # 生成命令
@@ -32,9 +32,3 @@ go mod tidy
 ```
 
 > 还需在 service context, config, etc 添加 ExampleRpc
-
-> 新增命令 `make help` ，可以查看所有命令，旧RPC项目只需要复制本项目的 `Makefile`, 将内部的第一行的 `PROJECT` 设置为自己的项目名称的小写即可。
-> `Dockerfile` 同样复制到自己的项目中修改下 `ARG` 参数
-
-> Add the new command `make help`, you can view all the commands, the old RPC project only needs to copy the `Makefile` of this project, and set `PROJECT` in the first line inside to the lowercase of your own project name.
-> `Dockerfile` is also copied to your own project to modify the `ARG` parameter
