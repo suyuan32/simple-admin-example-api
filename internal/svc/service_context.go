@@ -1,20 +1,17 @@
 package svc
 
 import (
-	"github.com/zeromicro/go-zero/core/stores/redis"
-	"github.com/zeromicro/go-zero/zrpc"
-
-	"github.com/suyuan32/simple-admin-example-rpc/exampleclient"
-
 	"github.com/suyuan32/simple-admin-example-api/internal/config"
+	i18n2 "github.com/suyuan32/simple-admin-example-api/internal/i18n"
 	"github.com/suyuan32/simple-admin-example-api/internal/middleware"
 
 	"github.com/suyuan32/simple-admin-common/i18n"
-
-	i18n2 "github.com/suyuan32/simple-admin-example-api/internal/i18n"
+	"github.com/suyuan32/simple-admin-core/rpc/coreclient"
+	"github.com/suyuan32/simple-admin-example-rpc/exampleclient"
 
 	"github.com/casbin/casbin/v2"
 	"github.com/zeromicro/go-zero/rest"
+	"github.com/zeromicro/go-zero/zrpc"
 )
 
 type ServiceContext struct {
@@ -22,14 +19,15 @@ type ServiceContext struct {
 	Casbin     *casbin.Enforcer
 	Authority  rest.Middleware
 	Trans      *i18n.Translator
+	CoreRpc    coreclient.Core
 	ExampleRpc exampleclient.Example
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 
-	rds := redis.MustNewRedis(c.RedisConf)
+	rds := c.RedisConf.MustNewUniversalRedis()
 
-	cbn := c.CasbinConf.MustNewCasbinWithRedisWatcher(c.DatabaseConf.Type, c.DatabaseConf.GetDSN(), c.RedisConf)
+	cbn := c.CasbinConf.MustNewCasbinWithOriginalRedisWatcher(c.CasbinDatabaseConf.Type, c.CasbinDatabaseConf.GetDSN(), c.RedisConf)
 
 	trans := i18n.NewTranslator(i18n2.LocaleFS)
 
@@ -37,6 +35,7 @@ func NewServiceContext(c config.Config) *ServiceContext {
 		Config:     c,
 		Authority:  middleware.NewAuthorityMiddleware(cbn, rds, trans).Handle,
 		Trans:      trans,
+		CoreRpc:    coreclient.NewCore(zrpc.NewClientIfEnable(c.CoreRpc)),
 		ExampleRpc: exampleclient.NewExample(zrpc.MustNewClient(c.ExampleRpc)),
 	}
 }

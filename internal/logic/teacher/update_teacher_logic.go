@@ -27,22 +27,12 @@ func NewUpdateTeacherLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Upd
 func (l *UpdateTeacherLogic) UpdateTeacher(req *types.TeacherInfo) (resp *types.BaseMsgResp, err error) {
 	data, err := l.svcCtx.ExampleRpc.UpdateTeacher(l.ctx,
 		&example.TeacherInfo{
-			Id:            req.Id,
-			Name:          req.Name,
-			Age:           req.Age,
-			AgeInt32:      req.AgeInt32,
-			AgeInt64:      req.AgeInt64,
-			AgeUint:       req.AgeUint,
-			AgeUint32:     req.AgeUint32,
-			AgeUint64:     req.AgeUint64,
-			WeightFloat:   req.WeightFloat,
-			WeightFloat32: req.WeightFloat32,
-			ClassId:       req.ClassId,
-			EnrollAt:      req.EnrollAt,
-			StatusBool:    req.StatusBool,
+			Id:   req.Id,
+			Name: req.Name,
+			Age:  req.Age,
 		})
 	if err != nil {
 		return nil, err
 	}
-	return &types.BaseMsgResp{Msg: data.Msg}, nil
+	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
 }

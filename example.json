@@ -50,7 +50,7 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "$ref": "#/definitions/IDReq"
+              "$ref": "#/definitions/UUIDReq"
             }
           }
         ],
@@ -106,7 +106,7 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "$ref": "#/definitions/IDsReq"
+              "$ref": "#/definitions/UUIDsReq"
             }
           }
         ],
@@ -190,7 +190,7 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "$ref": "#/definitions/UUIDReq"
+              "$ref": "#/definitions/IDReq"
             }
           }
         ],
@@ -246,7 +246,7 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "$ref": "#/definitions/UUIDsReq"
+              "$ref": "#/definitions/IDsReq"
             }
           }
         ],
@@ -488,6 +488,7 @@
           "description": "Page number | 第几页",
           "type": "integer",
           "format": "uint64",
+          "minimum": 0,
           "x-go-name": "Page"
         },
         "pageSize": {
@@ -504,46 +505,16 @@
       "description": "The response data of student information | Student信息",
       "type": "object",
       "properties": {
-        "age": {
-          "description": "年龄",
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "Age"
+        "address": {
+          "description": "Student's home address | 学生家庭住址",
+          "type": "string",
+          "x-go-name": "Address"
         },
-        "ageInt32": {
-          "description": "AgeInt32",
+        "age": {
+          "description": "Student age | 学生年龄",
           "type": "integer",
           "format": "int32",
-          "x-go-name": "AgeInt32"
-        },
-        "ageInt64": {
-          "description": "AgeInt64",
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "AgeInt64"
-        },
-        "ageUint": {
-          "description": "AgeUint",
-          "type": "integer",
-          "format": "uint64",
-          "x-go-name": "AgeUint"
-        },
-        "ageUint32": {
-          "description": "AgeUint32",
-          "type": "integer",
-          "format": "uint32",
-          "x-go-name": "AgeUint32"
-        },
-        "ageUint64": {
-          "description": "AgeUint64",
-          "type": "integer",
-          "format": "uint64",
-          "x-go-name": "AgeUint64"
-        },
-        "classId": {
-          "description": "ClassId",
-          "type": "string",
-          "x-go-name": "ClassId"
+          "x-go-name": "Age"
         },
         "createdAt": {
           "description": "Create date | 创建日期",
@@ -551,45 +522,21 @@
           "format": "int64",
           "x-go-name": "CreatedAt"
         },
-        "enrollAt": {
-          "description": "EnrollAt",
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "EnrollAt"
-        },
         "id": {
           "description": "ID",
-          "type": "integer",
-          "format": "uint64",
+          "type": "string",
           "x-go-name": "Id"
         },
         "name": {
-          "description": "姓名",
+          "description": "Student name | 学生姓名",
           "type": "string",
           "x-go-name": "Name"
-        },
-        "statusBool": {
-          "description": "StatusBool",
-          "type": "boolean",
-          "x-go-name": "StatusBool"
         },
         "updatedAt": {
           "description": "Update date | 更新日期",
           "type": "integer",
           "format": "int64",
           "x-go-name": "UpdatedAt"
-        },
-        "weightFloat": {
-          "description": "WeightFloat",
-          "type": "number",
-          "format": "double",
-          "x-go-name": "WeightFloat"
-        },
-        "weightFloat32": {
-          "description": "WeightFloat32",
-          "type": "number",
-          "format": "float",
-          "x-go-name": "WeightFloat32"
         }
       },
       "x-go-package": "github.com/suyuan32/simple-admin-example-api/internal/types"
@@ -647,6 +594,11 @@
         "pageSize"
       ],
       "properties": {
+        "address": {
+          "description": "Address",
+          "type": "string",
+          "x-go-name": "Address"
+        },
         "name": {
           "description": "Name",
           "type": "string",
@@ -656,6 +608,7 @@
           "description": "Page number | 第几页",
           "type": "integer",
           "format": "uint64",
+          "minimum": 0,
           "x-go-name": "Page"
         },
         "pageSize": {
@@ -697,45 +650,10 @@
       "type": "object",
       "properties": {
         "age": {
-          "description": "Age",
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "Age"
-        },
-        "ageInt32": {
-          "description": "AgeInt32",
+          "description": "Teacher's age | 教师年龄",
           "type": "integer",
           "format": "int32",
-          "x-go-name": "AgeInt32"
-        },
-        "ageInt64": {
-          "description": "AgeInt64",
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "AgeInt64"
-        },
-        "ageUint": {
-          "description": "AgeUint",
-          "type": "integer",
-          "format": "uint64",
-          "x-go-name": "AgeUint"
-        },
-        "ageUint32": {
-          "description": "AgeUint32",
-          "type": "integer",
-          "format": "uint32",
-          "x-go-name": "AgeUint32"
-        },
-        "ageUint64": {
-          "description": "AgeUint64",
-          "type": "integer",
-          "format": "uint64",
-          "x-go-name": "AgeUint64"
-        },
-        "classId": {
-          "description": "ClassId",
-          "type": "string",
-          "x-go-name": "ClassId"
+          "x-go-name": "Age"
         },
         "createdAt": {
           "description": "Create date | 创建日期",
@@ -743,44 +661,22 @@
           "format": "int64",
           "x-go-name": "CreatedAt"
         },
-        "enrollAt": {
-          "description": "EnrollAt",
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "EnrollAt"
-        },
         "id": {
           "description": "ID",
-          "type": "string",
+          "type": "integer",
+          "format": "uint64",
           "x-go-name": "Id"
         },
         "name": {
-          "description": "Name",
+          "description": "Teacher's name | 教师姓名",
           "type": "string",
           "x-go-name": "Name"
-        },
-        "statusBool": {
-          "description": "StatusBool",
-          "type": "boolean",
-          "x-go-name": "StatusBool"
         },
         "updatedAt": {
           "description": "Update date | 更新日期",
           "type": "integer",
           "format": "int64",
           "x-go-name": "UpdatedAt"
-        },
-        "weightFloat": {
-          "description": "WeightFloat",
-          "type": "number",
-          "format": "double",
-          "x-go-name": "WeightFloat"
-        },
-        "weightFloat32": {
-          "description": "WeightFloat32",
-          "type": "number",
-          "format": "float",
-          "x-go-name": "WeightFloat32"
         }
       },
       "x-go-package": "github.com/suyuan32/simple-admin-example-api/internal/types"
@@ -847,6 +743,7 @@
           "description": "Page number | 第几页",
           "type": "integer",
           "format": "uint64",
+          "minimum": 0,
           "x-go-name": "Page"
         },
         "pageSize": {
@@ -883,6 +780,20 @@
       },
       "x-go-package": "github.com/suyuan32/simple-admin-example-api/internal/types"
     },
+    "UUIDPathReq": {
+      "description": "Basic UUID request in path | 基础UUID地址参数请求",
+      "type": "object",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "ID",
+          "type": "string"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-example-api/internal/types"
+    },
     "UUIDReq": {
       "description": "Basic UUID request | 基础UUID参数请求",
       "type": "object",
@@ -894,6 +805,7 @@
           "description": "ID",
           "type": "string",
           "maxLength": 36,
+          "minLength": 36,
           "x-go-name": "Id"
         }
       },
@@ -916,17 +828,6 @@
         }
       },
       "x-go-package": "github.com/suyuan32/simple-admin-example-api/internal/types"
-    }
-  },
-  "responses": {
-    "SimpleMsg": {
-      "description": "The simplest message | 最简单的信息",
-      "headers": {
-        "msg": {
-          "type": "string",
-          "description": "Message | 信息"
-        }
-      }
     }
   },
   "securityDefinitions": {

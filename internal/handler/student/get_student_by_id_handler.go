@@ -20,14 +20,14 @@ import (
 //  + name: body
 //    require: true
 //    in: body
-//    type: IDReq
+//    type: UUIDReq
 //
 // Responses:
 //  200: StudentInfoResp
 
 func GetStudentByIdHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.IDReq
+		var req types.UUIDReq
 		if err := httpx.Parse(r, &req, true); err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return

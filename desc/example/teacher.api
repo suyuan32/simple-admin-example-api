@@ -3,43 +3,13 @@ import "../base.api"
 type (
     // The response data of teacher information | Teacher信息
     TeacherInfo {
-        BaseUUIDInfo
+        BaseIDInfo
 
-        // Name
+        // Teacher's name | 教师姓名
         Name  *string `json:"name,optional"`
 
-        // Age
-        Age  *int64 `json:"age,optional"`
-
-        // AgeInt32
-        AgeInt32  *int32 `json:"ageInt32,optional"`
-
-        // AgeInt64
-        AgeInt64  *int64 `json:"ageInt64,optional"`
-
-        // AgeUint
-        AgeUint  *uint64 `json:"ageUint,optional"`
-
-        // AgeUint32
-        AgeUint32  *uint32 `json:"ageUint32,optional"`
-
-        // AgeUint64
-        AgeUint64  *uint64 `json:"ageUint64,optional"`
-
-        // WeightFloat
-        WeightFloat  *float64 `json:"weightFloat,optional"`
-
-        // WeightFloat32
-        WeightFloat32  *float32 `json:"weightFloat32,optional"`
-
-        // ClassId
-        ClassId  *string `json:"classId,optional"`
-
-        // EnrollAt
-        EnrollAt  *int64 `json:"enrollAt,optional"`
-
-        // StatusBool
-        StatusBool  *bool `json:"statusBool,optional"`
+        // Teacher's age | 教师年龄
+        Age  *int32 `json:"age,optional"`
     }
 
     // The response data of teacher list | Teacher列表数据
@@ -92,7 +62,7 @@ service Example {
 
     // Delete teacher information | 删除Teacher信息
     @handler deleteTeacher
-    post /teacher/delete (UUIDsReq) returns (BaseMsgResp)
+    post /teacher/delete (IDsReq) returns (BaseMsgResp)
 
     // Get teacher list | 获取Teacher列表
     @handler getTeacherList
@@ -100,5 +70,5 @@ service Example {
 
     // Get teacher by ID | 通过ID获取Teacher
     @handler getTeacherById
-    post /teacher (UUIDReq) returns (TeacherInfoResp)
+    post /teacher (IDReq) returns (TeacherInfoResp)
 }

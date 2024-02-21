@@ -25,8 +25,8 @@ func NewGetStudentByIdLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Ge
 	}
 }
 
-func (l *GetStudentByIdLogic) GetStudentById(req *types.IDReq) (resp *types.StudentInfoResp, err error) {
-	data, err := l.svcCtx.ExampleRpc.GetStudentById(l.ctx, &example.IDReq{Id: req.Id})
+func (l *GetStudentByIdLogic) GetStudentById(req *types.UUIDReq) (resp *types.StudentInfoResp, err error) {
+	data, err := l.svcCtx.ExampleRpc.GetStudentById(l.ctx, &example.UUIDReq{Id: req.Id})
 	if err != nil {
 		return nil, err
 	}
@@ -37,23 +37,14 @@ func (l *GetStudentByIdLogic) GetStudentById(req *types.IDReq) (resp *types.Stud
 			Msg:  l.svcCtx.Trans.Trans(l.ctx, i18n.Success),
 		},
 		Data: types.StudentInfo{
-			BaseIDInfo: types.BaseIDInfo{
+			BaseUUIDInfo: types.BaseUUIDInfo{
 				Id:        data.Id,
 				CreatedAt: data.CreatedAt,
 				UpdatedAt: data.UpdatedAt,
 			},
-			Name:          data.Name,
-			Age:           data.Age,
-			AgeInt32:      data.AgeInt32,
-			AgeInt64:      data.AgeInt64,
-			AgeUint:       data.AgeUint,
-			AgeUint32:     data.AgeUint32,
-			AgeUint64:     data.AgeUint64,
-			WeightFloat:   data.WeightFloat,
-			WeightFloat32: data.WeightFloat32,
-			ClassId:       data.ClassId,
-			EnrollAt:      data.EnrollAt,
-			StatusBool:    data.StatusBool,
+			Name:    data.Name,
+			Age:     data.Age,
+			Address: data.Address,
 		},
 	}, nil
 }

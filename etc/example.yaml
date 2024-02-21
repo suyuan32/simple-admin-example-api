@@ -1,32 +1,33 @@
-Name: example.api
+Name: Example.api
 Host: 0.0.0.0
 Port: 8081
-Timeout: 30000
+Timeout: 2000
 
 Auth:
-  AccessSecret: adfadfasfadsfa # the same as core
+  AccessSecret: # the same as core
   AccessExpire: 259200
 
+CROSConf:
+  Address: '*'
+
 Log:
-  ServiceName: exampleApiLogger
+  ServiceName: ExampleApiLogger
   Mode: file
-  Path: /home/data/logs/example/api
+  Path: /home/data/logs/Example/api
   Level: info
   Compress: false
   KeepDays: 7
   StackCoolDownMillis: 100
 
-Prometheus:
-  Host: 0.0.0.0
-  Port: 4000
-  Path: /metrics
 
+CoreRpc:
+  Target: k8s://default/core-rpc-svc:9101
+  Enabled: true
 
 RedisConf:
   Host: 127.0.0.1:6379
-  Type: node
 
-DatabaseConf:
+CasbinDatabaseConf:
   Type: mysql
   Host: 127.0.0.1
   Port: 3306

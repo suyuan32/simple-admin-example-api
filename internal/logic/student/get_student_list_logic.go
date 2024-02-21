@@ -31,6 +31,7 @@ func (l *GetStudentListLogic) GetStudentList(req *types.StudentListReq) (resp *t
 			Page:     req.Page,
 			PageSize: req.PageSize,
 			Name:     req.Name,
+			Address:  req.Address,
 		})
 	if err != nil {
 		return nil, err
@@ -42,23 +43,14 @@ func (l *GetStudentListLogic) GetStudentList(req *types.StudentListReq) (resp *t
 	for _, v := range data.Data {
 		resp.Data.Data = append(resp.Data.Data,
 			types.StudentInfo{
-				BaseIDInfo: types.BaseIDInfo{
+				BaseUUIDInfo: types.BaseUUIDInfo{
 					Id:        v.Id,
 					CreatedAt: v.CreatedAt,
 					UpdatedAt: v.UpdatedAt,
 				},
-				Name:          v.Name,
-				Age:           v.Age,
-				AgeInt32:      v.AgeInt32,
-				AgeInt64:      v.AgeInt64,
-				AgeUint:       v.AgeUint,
-				AgeUint32:     v.AgeUint32,
-				AgeUint64:     v.AgeUint64,
-				WeightFloat:   v.WeightFloat,
-				WeightFloat32: v.WeightFloat32,
-				ClassId:       v.ClassId,
-				EnrollAt:      v.EnrollAt,
-				StatusBool:    v.StatusBool,
+				Name:    v.Name,
+				Age:     v.Age,
+				Address: v.Address,
 			})
 	}
 	return resp, nil

@@ -27,21 +27,11 @@ func NewCreateTeacherLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Cre
 func (l *CreateTeacherLogic) CreateTeacher(req *types.TeacherInfo) (resp *types.BaseMsgResp, err error) {
 	data, err := l.svcCtx.ExampleRpc.CreateTeacher(l.ctx,
 		&example.TeacherInfo{
-			Name:          req.Name,
-			Age:           req.Age,
-			AgeInt32:      req.AgeInt32,
-			AgeInt64:      req.AgeInt64,
-			AgeUint:       req.AgeUint,
-			AgeUint32:     req.AgeUint32,
-			AgeUint64:     req.AgeUint64,
-			WeightFloat:   req.WeightFloat,
-			WeightFloat32: req.WeightFloat32,
-			ClassId:       req.ClassId,
-			EnrollAt:      req.EnrollAt,
-			StatusBool:    req.StatusBool,
+			Name: req.Name,
+			Age:  req.Age,
 		})
 	if err != nil {
 		return nil, err
 	}
-	return &types.BaseMsgResp{Msg: data.Msg}, nil
+	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
 }

@@ -24,8 +24,8 @@ func NewDeleteStudentLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Del
 	}
 }
 
-func (l *DeleteStudentLogic) DeleteStudent(req *types.IDsReq) (resp *types.BaseMsgResp, err error) {
-	data, err := l.svcCtx.ExampleRpc.DeleteStudent(l.ctx, &example.IDsReq{
+func (l *DeleteStudentLogic) DeleteStudent(req *types.UUIDsReq) (resp *types.BaseMsgResp, err error) {
+	data, err := l.svcCtx.ExampleRpc.DeleteStudent(l.ctx, &example.UUIDsReq{
 		Ids: req.Ids,
 	})
 	if err != nil {

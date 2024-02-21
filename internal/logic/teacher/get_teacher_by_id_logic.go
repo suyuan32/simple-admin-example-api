@@ -25,8 +25,8 @@ func NewGetTeacherByIdLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Ge
 	}
 }
 
-func (l *GetTeacherByIdLogic) GetTeacherById(req *types.UUIDReq) (resp *types.TeacherInfoResp, err error) {
-	data, err := l.svcCtx.ExampleRpc.GetTeacherById(l.ctx, &example.UUIDReq{Id: req.Id})
+func (l *GetTeacherByIdLogic) GetTeacherById(req *types.IDReq) (resp *types.TeacherInfoResp, err error) {
+	data, err := l.svcCtx.ExampleRpc.GetTeacherById(l.ctx, &example.IDReq{Id: req.Id})
 	if err != nil {
 		return nil, err
 	}
@@ -34,26 +34,16 @@ func (l *GetTeacherByIdLogic) GetTeacherById(req *types.UUIDReq) (resp *types.Te
 	return &types.TeacherInfoResp{
 		BaseDataInfo: types.BaseDataInfo{
 			Code: 0,
-			Msg:  "successful",
+			Msg:  l.svcCtx.Trans.Trans(l.ctx, i18n.Success),
 		},
 		Data: types.TeacherInfo{
-			BaseUUIDInfo: types.BaseUUIDInfo{
+			BaseIDInfo: types.BaseIDInfo{
 				Id:        data.Id,
 				CreatedAt: data.CreatedAt,
 				UpdatedAt: data.UpdatedAt,
 			},
-			Name:          data.Name,
-			Age:           data.Age,
-			AgeInt32:      data.AgeInt32,
-			AgeInt64:      data.AgeInt64,
-			AgeUint:       data.AgeUint,
-			AgeUint32:     data.AgeUint32,
-			AgeUint64:     data.AgeUint64,
-			WeightFloat:   data.WeightFloat,
-			WeightFloat32: data.WeightFloat32,
-			ClassId:       data.ClassId,
-			EnrollAt:      data.EnrollAt,
-			StatusBool:    data.StatusBool,
+			Name: data.Name,
+			Age:  data.Age,
 		},
 	}, nil
 }
