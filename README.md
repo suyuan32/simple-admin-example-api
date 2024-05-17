@@ -1,4 +1,4 @@
-# simple-admin-example-api tool v1.6.27 gen by tools v1.7.3
+# simple-admin-example-api tool v1.7.3 gen by tools v1.7.3
 Ent api 生成例子
 
 # 生成命令
