@@ -516,33 +516,84 @@
           "format": "int32",
           "x-go-name": "Age"
         },
+        "code": {
+          "description": "Student's code | 学生编码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
         "createdAt": {
           "description": "Create date | 创建日期",
           "type": "integer",
           "format": "int64",
           "x-go-name": "CreatedAt"
         },
+        "expiredAt": {
+          "description": "Expired At | 到期时间",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ExpiredAt"
+        },
+        "healthy": {
+          "description": "Whether is healthy | 是否健康",
+          "type": "boolean",
+          "x-go-name": "Healthy"
+        },
+        "height": {
+          "description": "Student's height | 身高",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Height"
+        },
         "id": {
           "description": "ID",
           "type": "string",
           "x-go-name": "Id"
+        },
+        "identifyId": {
+          "description": "Student's identify_id | 学生身份证号",
+          "type": "string",
+          "x-go-name": "IdentifyId"
         },
         "name": {
           "description": "Student name | 学生姓名",
           "type": "string",
           "x-go-name": "Name"
         },
+        "score": {
+          "description": "Student's score | 学生分数",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Score"
+        },
+        "status": {
+          "description": "Status 1: normal 2: ban | 状态 1 正常 2 禁用",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "studentNumber": {
+          "description": "Student's number | 学生号码",
+          "type": "string",
+          "x-go-name": "StudentNumber"
+        },
         "updatedAt": {
           "description": "Update date | 更新日期",
           "type": "integer",
           "format": "int64",
           "x-go-name": "UpdatedAt"
+        },
+        "weight": {
+          "description": "Student's weight | 学生体重",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Weight"
         }
       },
       "x-go-package": "github.com/suyuan32/simple-admin-example-api/internal/types"
     },
     "StudentInfoResp": {
-      "description": "Student information response | Student信息返回体",
+      "description": "The student information response | Student信息返回体",
       "type": "object",
       "properties": {
         "code": {
@@ -566,11 +617,11 @@
       "x-go-package": "github.com/suyuan32/simple-admin-example-api/internal/types"
     },
     "StudentListInfo": {
-      "description": "Student list data | Student列表数据",
+      "description": "The student list data | Student信息列表数据",
       "type": "object",
       "properties": {
         "data": {
-          "description": "The API list data | Student列表数据",
+          "description": "The student list data | Student信息列表数据",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StudentInfo"
@@ -599,6 +650,40 @@
           "type": "string",
           "x-go-name": "Address"
         },
+        "age": {
+          "description": "Age",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Age"
+        },
+        "code": {
+          "description": "Code",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "expiredAt": {
+          "description": "ExpiredAt",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ExpiredAt"
+        },
+        "healthy": {
+          "description": "Healthy",
+          "type": "boolean",
+          "x-go-name": "Healthy"
+        },
+        "height": {
+          "description": "Height",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Height"
+        },
+        "identifyId": {
+          "description": "IdentifyId",
+          "type": "string",
+          "x-go-name": "IdentifyId"
+        },
         "name": {
           "description": "Name",
           "type": "string",
@@ -617,12 +702,35 @@
           "format": "uint64",
           "maximum": 100000,
           "x-go-name": "PageSize"
+        },
+        "score": {
+          "description": "Score",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Score"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "studentNumber": {
+          "description": "StudentNumber",
+          "type": "string",
+          "x-go-name": "StudentNumber"
+        },
+        "weight": {
+          "description": "Weight",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Weight"
         }
       },
       "x-go-package": "github.com/suyuan32/simple-admin-example-api/internal/types"
     },
     "StudentListResp": {
-      "description": "The response data of student list | Student列表数据",
+      "description": "The response data of student list | Student信息列表数据",
       "type": "object",
       "properties": {
         "code": {

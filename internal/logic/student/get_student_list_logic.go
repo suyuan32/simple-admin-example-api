@@ -7,7 +7,6 @@ import (
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
 	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
-	"github.com/suyuan32/simple-admin-common/i18n"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -28,16 +27,26 @@ func NewGetStudentListLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Ge
 func (l *GetStudentListLogic) GetStudentList(req *types.StudentListReq) (resp *types.StudentListResp, err error) {
 	data, err := l.svcCtx.ExampleRpc.GetStudentList(l.ctx,
 		&example.StudentListReq{
-			Page:     req.Page,
-			PageSize: req.PageSize,
-			Name:     req.Name,
-			Address:  req.Address,
+			Page:          req.Page,
+			PageSize:      req.PageSize,
+			Status:        req.Status,
+			Name:          req.Name,
+			Age:           req.Age,
+			Address:       req.Address,
+			Score:         req.Score,
+			Weight:        req.Weight,
+			Healthy:       req.Healthy,
+			Code:          req.Code,
+			IdentifyId:    req.IdentifyId,
+			Height:        req.Height,
+			ExpiredAt:     req.ExpiredAt,
+			StudentNumber: req.StudentNumber,
 		})
 	if err != nil {
 		return nil, err
 	}
 	resp = &types.StudentListResp{}
-	resp.Msg = l.svcCtx.Trans.Trans(l.ctx, i18n.Success)
+	resp.Msg = "successful"
 	resp.Data.Total = data.GetTotal()
 
 	for _, v := range data.Data {
@@ -48,9 +57,18 @@ func (l *GetStudentListLogic) GetStudentList(req *types.StudentListReq) (resp *t
 					CreatedAt: v.CreatedAt,
 					UpdatedAt: v.UpdatedAt,
 				},
-				Name:    v.Name,
-				Age:     v.Age,
-				Address: v.Address,
+				Status:        v.Status,
+				Name:          v.Name,
+				Age:           v.Age,
+				Address:       v.Address,
+				Score:         v.Score,
+				Weight:        v.Weight,
+				Healthy:       v.Healthy,
+				Code:          v.Code,
+				IdentifyId:    v.IdentifyId,
+				Height:        v.Height,
+				ExpiredAt:     v.ExpiredAt,
+				StudentNumber: v.StudentNumber,
 			})
 	}
 	return resp, nil

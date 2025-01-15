@@ -27,12 +27,21 @@ func NewCreateStudentLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Cre
 func (l *CreateStudentLogic) CreateStudent(req *types.StudentInfo) (resp *types.BaseMsgResp, err error) {
 	data, err := l.svcCtx.ExampleRpc.CreateStudent(l.ctx,
 		&example.StudentInfo{
-			Name:    req.Name,
-			Age:     req.Age,
-			Address: req.Address,
+			Status:        req.Status,
+			Name:          req.Name,
+			Age:           req.Age,
+			Address:       req.Address,
+			Score:         req.Score,
+			Weight:        req.Weight,
+			Healthy:       req.Healthy,
+			Code:          req.Code,
+			IdentifyId:    req.IdentifyId,
+			Height:        req.Height,
+			ExpiredAt:     req.ExpiredAt,
+			StudentNumber: req.StudentNumber,
 		})
 	if err != nil {
 		return nil, err
 	}
-	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
+	return &types.BaseMsgResp{Msg: data.Msg}, nil
 }

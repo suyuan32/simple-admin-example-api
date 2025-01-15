@@ -5,6 +5,9 @@ type (
     StudentInfo {
         BaseUUIDInfo
 
+        // Status 1: normal 2: ban | 状态 1 正常 2 禁用
+        Status  *uint32 `json:"status,optional"`
+
         // Student name | 学生姓名
         Name  *string `json:"name,optional"`
 
@@ -13,21 +16,45 @@ type (
 
         // Student's home address | 学生家庭住址
         Address  *string `json:"address,optional"`
+
+        // Student's score | 学生分数
+        Score  *int32 `json:"score,optional"`
+
+        // Student's weight | 学生体重
+        Weight  *uint32 `json:"weight,optional"`
+
+        // Whether is healthy | 是否健康
+        Healthy  *bool `json:"healthy,optional"`
+
+        // Student's code | 学生编码
+        Code  *int64 `json:"code,optional"`
+
+        // Student's identify_id | 学生身份证号
+        IdentifyId  *string `json:"identifyId,optional"`
+
+        // Student's height | 身高
+        Height  *int64 `json:"height,optional"`
+
+        // Expired At | 到期时间
+        ExpiredAt  *int64 `json:"expiredAt,optional"`
+
+        // Student's number | 学生号码
+        StudentNumber  *string `json:"studentNumber,optional"`
     }
 
-    // The response data of student list | Student列表数据
+    // The response data of student list | Student信息列表数据
     StudentListResp {
         BaseDataInfo
 
-        // Student list data | Student列表数据
+        // Student list data | Student信息列表数据
         Data StudentListInfo `json:"data"`
     }
 
-    // Student list data | Student列表数据
+    // The student list data | Student信息列表数据
     StudentListInfo {
         BaseListInfo
 
-        // The API list data | Student列表数据
+        // The student list data | Student信息列表数据
         Data  []StudentInfo  `json:"data"`
     }
 
@@ -35,18 +62,48 @@ type (
     StudentListReq {
         PageInfo
 
+        // Status
+        Status  *uint32 `json:"status,optional"`
+
         // Name
         Name  *string `json:"name,optional"`
 
+        // Age
+        Age  *int32 `json:"age,optional"`
+
         // Address
         Address  *string `json:"address,optional"`
+
+        // Score
+        Score  *int32 `json:"score,optional"`
+
+        // Weight
+        Weight  *uint32 `json:"weight,optional"`
+
+        // Healthy
+        Healthy  *bool `json:"healthy,optional"`
+
+        // Code
+        Code  *int64 `json:"code,optional"`
+
+        // IdentifyId
+        IdentifyId  *string `json:"identifyId,optional"`
+
+        // Height
+        Height  *int64 `json:"height,optional"`
+
+        // ExpiredAt
+        ExpiredAt  *int64 `json:"expiredAt,optional"`
+
+        // StudentNumber
+        StudentNumber  *string `json:"studentNumber,optional"`
     }
 
-    // Student information response | Student信息返回体
+    // The student information response | Student信息返回体
     StudentInfoResp {
         BaseDataInfo
 
-        // Student information | Student数据
+        // The student information | Student信息数据
         Data StudentInfo `json:"data"`
     }
 )
@@ -58,11 +115,11 @@ type (
 )
 
 service Example {
-    // Create student information | 创建Student
+    // Create student information | 创建Student信息
     @handler createStudent
     post /student/create (StudentInfo) returns (BaseMsgResp)
 
-    // Update student information | 更新Student
+    // Update student information | 更新Student信息
     @handler updateStudent
     post /student/update (StudentInfo) returns (BaseMsgResp)
 
@@ -70,11 +127,11 @@ service Example {
     @handler deleteStudent
     post /student/delete (UUIDsReq) returns (BaseMsgResp)
 
-    // Get student list | 获取Student列表
+    // Get student list | 获取Student信息列表
     @handler getStudentList
     post /student/list (StudentListReq) returns (StudentListResp)
 
-    // Get student by ID | 通过ID获取Student
+    // Get student by ID | 通过ID获取Student信息
     @handler getStudentById
     post /student (UUIDReq) returns (StudentInfoResp)
 }

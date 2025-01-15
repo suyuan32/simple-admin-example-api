@@ -7,7 +7,6 @@ import (
 	"github.com/suyuan32/simple-admin-example-api/internal/types"
 	"github.com/suyuan32/simple-admin-example-rpc/types/example"
 
-	"github.com/suyuan32/simple-admin-common/i18n"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -34,7 +33,7 @@ func (l *GetStudentByIdLogic) GetStudentById(req *types.UUIDReq) (resp *types.St
 	return &types.StudentInfoResp{
 		BaseDataInfo: types.BaseDataInfo{
 			Code: 0,
-			Msg:  l.svcCtx.Trans.Trans(l.ctx, i18n.Success),
+			Msg:  "successful",
 		},
 		Data: types.StudentInfo{
 			BaseUUIDInfo: types.BaseUUIDInfo{
@@ -42,9 +41,18 @@ func (l *GetStudentByIdLogic) GetStudentById(req *types.UUIDReq) (resp *types.St
 				CreatedAt: data.CreatedAt,
 				UpdatedAt: data.UpdatedAt,
 			},
-			Name:    data.Name,
-			Age:     data.Age,
-			Address: data.Address,
+			Status:        data.Status,
+			Name:          data.Name,
+			Age:           data.Age,
+			Address:       data.Address,
+			Score:         data.Score,
+			Weight:        data.Weight,
+			Healthy:       data.Healthy,
+			Code:          data.Code,
+			IdentifyId:    data.IdentifyId,
+			Height:        data.Height,
+			ExpiredAt:     data.ExpiredAt,
+			StudentNumber: data.StudentNumber,
 		},
 	}, nil
 }

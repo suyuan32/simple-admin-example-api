@@ -32,5 +32,5 @@ func (l *DeleteStudentLogic) DeleteStudent(req *types.UUIDsReq) (resp *types.Bas
 		return nil, err
 	}
 
-	return &types.BaseMsgResp{Msg: l.svcCtx.Trans.Trans(l.ctx, data.Msg)}, nil
+	return &types.BaseMsgResp{Msg: data.Msg}, nil
 }
