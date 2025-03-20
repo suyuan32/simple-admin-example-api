@@ -32,3 +32,7 @@ go mod tidy
 ```
 
 > 还需在 service context, config, etc 添加 ExampleRpc
+
+## 添加初始化代码
+
+在 logic/base 文件夹内手动添加 API 和 menu 初始化代码
