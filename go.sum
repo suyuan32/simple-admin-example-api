@@ -200,8 +200,8 @@ github.com/suyuan32/simple-admin-common v1.6.5 h1:N4jE+1uL5uacbiI80tQ4jVWvObxZ2p
 github.com/suyuan32/simple-admin-common v1.6.5/go.mod h1:5F5uPE5NwVB/LL/bAAakugdf9aEIVW+vy8hqbMQRL+I=
 github.com/suyuan32/simple-admin-core v1.6.5 h1:MFCTirdpQrvg8XoUV3i9n5lRPh3fUmCOouWvWBpf0SA=
 github.com/suyuan32/simple-admin-core v1.6.5/go.mod h1:ASG3WHoFBdglGNYWQliXXRMXVFJhdDW6fQWfKIgsNLw=
-github.com/suyuan32/simple-admin-example-rpc v1.7.3 h1:ju3cYFa5z2TgSpEgJjWJMenogDWJROcqA3vCk1auOjs=
-github.com/suyuan32/simple-admin-example-rpc v1.7.3/go.mod h1:LdDLPboRe7Apsq4fgwj1iD5IKQ28tl8YrmDWc+2Xq5Y=
+github.com/suyuan32/simple-admin-example-rpc v1.10.2 h1:u2meVAvOocbgEQEiBM8aLvS36jgsaWB8iaIllhYdEdU=
+github.com/suyuan32/simple-admin-example-rpc v1.10.2/go.mod h1:5llQkGJ7v1HGLpLLJnc99Ks1Jf/jehJ6gEOtIPEFW58=
 github.com/suyuan32/simple-admin-tools v1.8.1 h1:aTe6Y+1HIzyCjWWgevWedk/CZV8fC5IOOszSjV0T/Ds=
 github.com/suyuan32/simple-admin-tools v1.8.1/go.mod h1:7VvjqFfBPhX8PcKPRbL4EjK2YzJbaYiU7AnxRvfpEFc=
 github.com/x448/float16 v0.8.4 h1:qLwI1I70+NjRFUR3zs1JPUCgaCXSh3SW62uAKT1mSBM=

@@ -9,7 +9,7 @@ require (
 	github.com/redis/go-redis/v9 v9.7.1
 	github.com/suyuan32/simple-admin-common v1.6.5
 	github.com/suyuan32/simple-admin-core v1.6.5
-	github.com/suyuan32/simple-admin-example-rpc v1.7.3
+	github.com/suyuan32/simple-admin-example-rpc v1.10.2
 	github.com/zeromicro/go-zero v1.8.1
 )
 
